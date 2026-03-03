@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="portfolio.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
   <!-- GoatCounter analytics -->
   <script data-goatcounter="https://soundcartography.goatcounter.com/count"
@@ -19,9 +20,11 @@
   <meta property="og:title"       content="Sound Cartography — Catalogue of Sound Maps">
   <meta property="og:description" content="A curated catalogue of sound maps and related projects from around the world. Compiled by Pierre Aumond.">
   <meta property="og:url"         content="https://pierromond.github.io/SoundCartography/index.html">
+  <meta property="og:image"       content="https://pierromond.github.io/SoundCartography/media/sow.png">
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Sound Cartography — Catalogue of Sound Maps">
   <meta name="twitter:description" content="A curated catalogue of sound maps and related projects from around the world. Compiled by Pierre Aumond.">
+  <meta name="twitter:image"       content="https://pierromond.github.io/SoundCartography/media/sow.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Sound Cartography — Catalogue of Sound Maps","description":"A curated catalogue of sound maps and related projects from around the world. Compiled by Pierre Aumond.","url":"https://pierromond.github.io/SoundCartography/index.html","author":{"@type":"Person","name":"Pierre Aumond"},"numberOfItems":85}</script>
 </head>
 <body>
@@ -31,8 +34,7 @@
   <h1 class="site-title">Sound Cartography</h1>
   <p class="site-subtitle">A catalogue of sound maps and sonic geography projects from around the world —
     compiled by <strong>Pierre Aumond</strong>.</p>
-  <p class="site-meta" id="header-count">Loading…&nbsp;·&nbsp; 2015–2026 &nbsp;·&nbsp;
-    <a href="mailto:pierre.aumond@univ-eiffel.fr">contact</a></p>
+  <p class="site-meta" id="header-count">Loading…&nbsp;·&nbsp; 2015–2026</p>
 </header>
 <span class="wave-sep"></span>
 
@@ -41,7 +43,6 @@
     <p>This catalogue gathers sound cartography projects selected since 2015.
     Texts, images and content <strong>come from the creators of each project</strong>
     &#8212; artists, researchers, sound collectives. This site is solely a curation and collection effort.</p>
-    <p>Contact: <a href="mailto:pierre.aumond@univ-eiffel.fr">pierre.aumond@univ-eiffel.fr</a></p>
   </div>
 </section>
 
@@ -85,8 +86,7 @@
 </main>
 
 <footer class="site-footer">
-  <p>Sound Cartography &nbsp;·&nbsp; Curated by
-    <a href="mailto:pierre.aumond@univ-eiffel.fr">Pierre Aumond</a>
+  <p>Sound Cartography &nbsp;·&nbsp; Curated by Pierre Aumond
     &nbsp;·&nbsp; Content sourced from referenced projects — not authored by the curator.</p>
 </footer>
 <script>
@@ -183,8 +183,7 @@
       // Update header + counter
       var n=entries.length;
       counter.textContent=n+' entries';
-      headerCount.innerHTML=n+' entries&nbsp;&middot;&nbsp; 2015–2026 &nbsp;&middot;&nbsp;'
-        +'<a href="mailto:pierre.aumond@univ-eiffel.fr">contact</a>';
+      headerCount.innerHTML=n+' entries&nbsp;&middot;&nbsp; 2015–2026';
 
       // Attach events after DOM is ready
       document.querySelectorAll('[data-type="year"]').forEach(function(b){

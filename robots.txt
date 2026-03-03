@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pierromond.github.io/SoundCartography/sitemap.xml
