@@ -140,6 +140,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 #search::placeholder{color:var(--text-dim)}
 #search:focus{border-color:var(--accent);background:var(--surface)}
 .filter-group{display:flex;flex-wrap:wrap;gap:.3rem;align-items:center}
+.filter-group#year-filter-group{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:100%}
+.filter-group#year-filter-group::-webkit-scrollbar{display:none}
 .filter-label{font-size:.67rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text-dim);margin-right:.1rem}
 .filter-btn{
   font-family:inherit;font-size:.7rem;font-weight:500;
@@ -283,6 +285,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .fiche-content li{margin-bottom:.3em}
 .fiche-content hr{border:none;border-top:1px solid var(--border);margin:1.5em 0}
 .fiche-content strong{color:var(--heading)}
+.fiche-content iframe,.fiche-content embed,.fiche-content video{max-width:100%;border-radius:8px}
+.fiche-content .wp-block-embed,.fiche-content .video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.2em 0}
+.fiche-content .wp-block-embed iframe,.fiche-content .video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%}
 .fiche-notice{
   margin-top:2.5rem;padding:1rem 1.2rem;
   background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);
@@ -292,17 +297,26 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 @media(max-width:900px){
   .grid{grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:.85rem}
   .site-header{padding:4rem 1.5rem 3.5rem}
+  .fiche-hero img{max-height:360px}
 }
 @media(max-width:640px){
   .controls-inner{flex-direction:column;align-items:stretch}
   .grid{padding:.5rem 1rem 3rem;grid-template-columns:repeat(auto-fill,minmax(min(155px,100%),1fr));gap:.65rem}
   .site-header{padding:3rem 1rem 2.5rem}
+  .site-intro{padding:1rem 1rem}
   .fiche-main,.fiche-hero,.fiche-nav{padding:0 1rem}
+  .fiche-hero img{max-height:280px}
   .cat-select{min-width:0;width:100%}
   .filter-btn{padding:.35rem .75rem;min-height:36px}
+  .card-title{font-size:.82rem}
+  .card-meta{font-size:.55rem}
+  .tag{font-size:.55rem;padding:.14rem .45rem}
 }
 @media(max-width:400px){
   .grid{grid-template-columns:1fr 1fr;gap:.5rem;padding:.4rem .65rem 2.5rem}
+  .card-body{padding:.5rem .65rem .6rem}
+  .card-title{font-size:.75rem}
+  .site-title{font-size:clamp(2rem,8vw,2.8rem)}
 }
 
 /* ── Submit card ── */
