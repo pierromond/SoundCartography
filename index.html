@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="portfolio.css">
+  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
   <!-- GoatCounter analytics -->
   <script data-goatcounter="https://soundcartography.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -25,6 +26,7 @@
 </head>
 <body>
 <header class="site-header">
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">&#9728;</button>
   <p class="site-eyebrow">Curated catalogue</p>
   <h1 class="site-title">Sound Cartography</h1>
   <p class="site-subtitle">A catalogue of sound maps and sonic geography projects from around the world —
@@ -200,5 +202,6 @@
     .catch(function(){counter.textContent='Error loading entries.';});
 })();
 </script>
+<script>(function(){var root=document.documentElement;var btn=document.getElementById('theme-toggle');function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':!window.matchMedia('(prefers-color-scheme:light)').matches;}function sync(){btn.textContent=isDark()?'☀':'☽';}btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem('theme',n);sync();});sync();})();</script>
 </body>
 </html>
