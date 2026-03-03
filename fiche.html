@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Sound Cartography</title>
+  <meta name="description" id="page-desc" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portfolio.css">
+  <!-- GoatCounter analytics -->
+  <script data-goatcounter="https://soundcartography.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <p class="site-eyebrow">Sound Cartography &mdash; Catalogue entry</p>
+  <h1 class="site-title" id="entry-title" style="font-size:clamp(1.4rem,3vw,2rem)"></h1>
+  <p class="site-meta"><a href="index.html">&larr; Back to catalogue</a></p>
+</header>
+<span class="wave-sep"></span>
+
+<nav class="fiche-nav"><a class="back-link" href="index.html">&larr; All entries</a></nav>
+<div id="hero-zone"></div>
+
+<article class="fiche-main">
+  <header class="fiche-header">
+    <p class="fiche-eyebrow" id="entry-date"></p>
+    <h2 class="fiche-title" id="entry-title2"></h2>
+    <div class="fiche-tags card-tags" id="entry-tags"></div>
+    <a class="fiche-visit" id="entry-link" target="_blank" rel="noopener"></a>
+  </header>
+  <hr class="fiche-divider">
+  <div class="fiche-content" id="entry-body"></div>
+  <div class="fiche-notice">
+    Catalogue entry compiled by Pierre Aumond (curator).
+    Content sourced from the original project&#8217;s website &mdash; not authored by the curator.
+  </div>
+</article>
+
+<footer class="site-footer">
+  <p>Sound Cartography &nbsp;·&nbsp; Curated by
+    <a href="mailto:pierre.aumond@univ-eiffel.fr">Pierre Aumond</a>
+    &nbsp;·&nbsp; Content sourced from referenced projects — not authored by the curator.</p>
+</footer>
+<script>
+(function() {
+  function escH(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  var params = new URLSearchParams(location.search);
+  var slug = params.get('slug');
+  if (!slug) { document.getElementById('entry-title').textContent = 'Entry not found'; return; }
+  fetch('data/entries.json')
+    .then(function(r) { return r.json(); })
+    .then(function(entries) {
+      var entry = entries.find(function(e) { return e.slug === slug; });
+      if (!entry) { document.getElementById('entry-title').textContent = 'Entry not found'; return; }
+      document.title = entry.title + ' — Sound Cartography';
+      document.getElementById('page-desc').setAttribute('content', entry.excerpt.slice(0,160));
+      document.getElementById('entry-title').textContent  = entry.title;
+      document.getElementById('entry-title2').textContent = entry.title;
+      document.getElementById('entry-date').textContent   = entry.date;
+      // Hero image + lightbox
+      if (entry.local_img) {
+        document.getElementById('hero-zone').innerHTML =
+          '<div class="fiche-hero">'+
+          '<img src="'+entry.local_img+'" alt="'+escH(entry.title)+'" class="hero-img">'+
+          '<button class="lightbox-btn" aria-label="View full size">&#x26F6; Full size</button>'+
+          '</div>'+
+          '<div class="lightbox" id="lb" role="dialog" aria-modal="true">'+
+          '<button class="lightbox-close" aria-label="Close">&times;</button>'+
+          '<img src="'+entry.local_img+'" alt="'+escH(entry.title)+'">'+
+          '</div>';
+        var lb = document.getElementById('lb');
+        document.querySelector('.hero-img').addEventListener('click',     function(){lb.classList.add('open')});
+        document.querySelector('.lightbox-btn').addEventListener('click',  function(){lb.classList.add('open')});
+        document.querySelector('.lightbox-close').addEventListener('click',function(){lb.classList.remove('open')});
+        lb.addEventListener('click', function(e){if(e.target===lb)lb.classList.remove('open')});
+        document.addEventListener('keydown', function(e){if(e.key==='Escape')lb.classList.remove('open')});
+      }
+      // Tags
+      var tags = entry.topics.map(function(t){
+        return '<span class="tag tag--topic">'+escH(t)+'</span>';
+      }).concat(entry.places.map(function(p){
+        return '<span class="tag tag--place">&#128205; '+escH(p)+'</span>';
+      }));
+      document.getElementById('entry-tags').innerHTML = tags.join('');
+      // Visit link
+      var lk = document.getElementById('entry-link');
+      if (entry.ext_url && entry.ext_url !== '#') {
+        var domain = entry.ext_url.split('/')[2] || entry.ext_url;
+        lk.href = entry.ext_url;
+        lk.textContent = 'Visit project: '+domain+' ↗';
+      } else { lk.style.display='none'; }
+      // Body
+      document.getElementById('entry-body').innerHTML = entry.body;
+    });
+})();
+</script>
+</body>
+</html>

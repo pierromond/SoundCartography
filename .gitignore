@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Backups
+*.bak
+*.orig
+
+# Old scripts
+transform_xml.py
+
+# Generator and source data (local only)
+generate_portfolio.py
+*.xml
+!sitemap.xml
+*.tar
+portfolio.html
+
+# Editor
+.vscode/
+*.swp
+*~

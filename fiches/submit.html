@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit an entry — Sound Cartography</title>
+  <meta name="description" content="Propose a sound map project for the Sound Cartography catalogue.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../portfolio.css">
+  <!-- GoatCounter analytics -->
+  <script data-goatcounter="https://soundcartography.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <p class="site-eyebrow">Sound Cartography</p>
+  <h1 class="site-title" style="font-size:clamp(1.6rem,4vw,2.6rem)">Submit an entry</h1>
+  <p class="site-meta"><a href="../index.html">← Back to catalogue</a></p>
+</header>
+<span class="wave-sep"></span>
+
+<nav class="fiche-nav"><a class="back-link" href="../index.html">← All entries</a></nav>
+
+<article class="fiche-main">
+  <div class="submit-form">
+    <p style="color:var(--text-dim);font-size:.9rem;line-height:1.7;margin-bottom:2rem">
+      Know a sound map that should be in this catalogue? Fill in the fields below and click
+      <strong style="color:var(--heading)">Send via email</strong>.
+      Your mail client will open with all the information pre-filled —
+      just attach the image and hit send.
+    </p>
+
+    <div class="form-group">
+      <label for="f-title">Project title *</label>
+      <input type="text" id="f-title" placeholder="e.g. Cities and Memory" required>
+    </div>
+
+    <div class="form-group">
+      <label for="f-url">Project URL *</label>
+      <input type="url" id="f-url" placeholder="https://..." required>
+    </div>
+
+    <div class="form-group">
+      <label for="f-desc">Description *</label>
+      <span class="hint">A short text about the project (2–5 sentences). This will appear on the catalogue entry.</span>
+      <textarea id="f-desc" placeholder="Describe the project: what is it, who made it, what does it map…"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="f-cats">Categories / tags</label>
+      <span class="hint">Comma-separated — e.g. noise, soundscape, France, Europe</span>
+      <input type="text" id="f-cats" placeholder="sound map, participatory, France">
+    </div>
+
+    <div class="form-group">
+      <label>Image</label>
+      <span class="hint">
+        Please prepare a square image of the project (1 000 × 1 000 px, JPG or PNG).
+        You will be asked to <strong style="color:var(--heading)">attach it to the email</strong> after clicking the button.
+      </span>
+    </div>
+
+    <button class="submit-btn" id="send-btn">Send via email ✉</button>
+
+    <div class="form-note">
+      <strong style="color:var(--heading)">How it works:</strong>
+      Clicking the button opens your default mail client with the information pre-filled.
+      Don’t forget to <strong style="color:var(--heading)">attach the image</strong> (1 000 × 1 000 px)
+      before sending. Your submission will be reviewed and added to the catalogue.
+    </div>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <p>Sound Cartography &nbsp;·&nbsp; Curated by
+    <a href="mailto:pierre.aumond@univ-eiffel.fr">Pierre Aumond</a>
+    &nbsp;·&nbsp; Content sourced from referenced projects — not authored by the curator.</p>
+</footer>
+<script>
+(function(){{
+  document.getElementById('send-btn').addEventListener('click', function() {{
+    var title = document.getElementById('f-title').value.trim();
+    var url   = document.getElementById('f-url').value.trim();
+    var desc  = document.getElementById('f-desc').value.trim();
+    var cats  = document.getElementById('f-cats').value.trim();
+    if (!title || !url || !desc) {{
+      alert('Please fill in the title, URL and description.');
+      return;
+    }}
+    var nl = '\n';
+    var body = 'PROJECT TITLE: ' + title + nl + nl
+             + 'URL: ' + url + nl + nl
+             + 'DESCRIPTION:' + nl + desc + nl + nl
+             + 'CATEGORIES: ' + (cats || '(none)') + nl + nl
+             + '---' + nl
+             + 'Please attach the image (1000x1000 px) to this email.';
+    var subject = 'Sound Cartography — New entry: ' + title;
+    window.location.href = 'mailto:pierre.aumond@univ-eiffel.fr'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+  }});
+}})();
+</script>
+</body>
+</html>
