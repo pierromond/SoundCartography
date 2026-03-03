@@ -29,7 +29,7 @@
   <h1 class="site-title">Sound Cartography</h1>
   <p class="site-subtitle">A catalogue of sound maps and sonic geography projects from around the world —
     compiled by <strong>Pierre Aumond</strong>.</p>
-  <p class="site-meta">85 entries &nbsp;·&nbsp; 2015–2026 &nbsp;·&nbsp;
+  <p class="site-meta" id="header-count">Loading…&nbsp;·&nbsp; 2015–2026 &nbsp;·&nbsp;
     <a href="mailto:pierre.aumond@univ-eiffel.fr">contact</a></p>
 </header>
 <span class="wave-sep"></span>
@@ -48,996 +48,37 @@
     <div class="search-wrap">
       <input type="search" id="search" placeholder="Search by title or description…" autocomplete="off">
     </div>
-    <div class="filter-group">
+    <div class="filter-group" id="year-filter-group">
       <span class="filter-label">Year</span>
       <button class="filter-btn active" data-filter="all" data-type="year">All</button>
-<button class="filter-btn" data-filter="2026" data-type="year">2026</button>
-<button class="filter-btn" data-filter="2025" data-type="year">2025</button>
-<button class="filter-btn" data-filter="2021" data-type="year">2021</button>
-<button class="filter-btn" data-filter="2020" data-type="year">2020</button>
-<button class="filter-btn" data-filter="2019" data-type="year">2019</button>
-<button class="filter-btn" data-filter="2018" data-type="year">2018</button>
-<button class="filter-btn" data-filter="2017" data-type="year">2017</button>
-<button class="filter-btn" data-filter="2016" data-type="year">2016</button>
-<button class="filter-btn" data-filter="2015" data-type="year">2015</button>
     </div>
     <div class="filter-group">
       <span class="filter-label">Topic</span>
-      <select class="cat-select" id="topic-select"><option value="all">All topics</option>
-<option value="alternative-representation">Alternative Representation (20)</option>
-<option value="auralization">Auralization (3)</option>
-<option value="geolocalized-playlist">Geolocalized playlist (2)</option>
-<option value="geolocalized-recordings">Geolocalized recordings (50)</option>
-<option value="georeferenced-information">Georeferenced information (16)</option>
-<option value="health">Health (1)</option>
-<option value="historical-sounds">Historical Sounds (9)</option>
-<option value="languages">Languages (2)</option>
-<option value="live-measurements">Live measurements (2)</option>
-<option value="live-streaming-recordings">Live streaming recordings (1)</option>
-<option value="measurements-network">Measurements network (1)</option>
-<option value="music">Music (4)</option>
-<option value="my-selection">My Selection (25)</option>
-<option value="nature">Nature (5)</option>
-<option value="noise-annoyance">Noise Annoyance (8)</option>
-<option value="pathway-listening">Pathway Listening (7)</option>
-<option value="patrimonial">Patrimonial (24)</option>
-<option value="perceptive-assessments">Perceptive Assessments (5)</option>
-<option value="phone-app">Phone App (6)</option>
-<option value="quietness">Quietness (2)</option>
-<option value="sacred-spaces">Sacred Spaces (1)</option>
-<option value="sea---ocean">Sea - Ocean (1)</option>
-<option value="sound-level-noise-map">Sound Level Noise Map (9)</option>
-<option value="sound-levels">Sound levels (13)</option>
-<option value="sound-library">Sound library (6)</option>
-<option value="sound-mixing">Sound Mixing (5)</option>
-<option value="sound-quality">Sound Quality (6)</option>
-<option value="sound-recordings">Sound recordings (42)</option>
-<option value="sound-walks">Sound Walks (8)</option>
-<option value="travel">Travel (3)</option>
-<option value="urban-sound-dictionary">Urban sound dictionary (1)</option>
-<option value="video">Video (1)</option></select>
+      <select class="cat-select" id="topic-select">
+        <option value="all">All topics</option>
+      </select>
     </div>
     <div class="filter-group">
       <span class="filter-label">Place</span>
-      <select class="cat-select" id="place-select"><option value="all">All places</option>
-<option value="africa">Africa (1)</option>
-<option value="andalucia">Andalucia (1)</option>
-<option value="asia">Asia (1)</option>
-<option value="asturias">Asturias (1)</option>
-<option value="athens">Athens (2)</option>
-<option value="austria">Austria (1)</option>
-<option value="bahia-blanca">Bahia Blanca (1)</option>
-<option value="barcelona">Barcelona (2)</option>
-<option value="belfast">Belfast (1)</option>
-<option value="boston">Boston (2)</option>
-<option value="braga">Braga (1)</option>
-<option value="brazil">Brazil (1)</option>
-<option value="brussels">Brussels (2)</option>
-<option value="caen">Caen (1)</option>
-<option value="canada">Canada (1)</option>
-<option value="canberra">Canberra (1)</option>
-<option value="chicago">Chicago (3)</option>
-<option value="chili">Chili (1)</option>
-<option value="china">China (1)</option>
-<option value="curitiba">Curitiba (1)</option>
-<option value="cáceres">Cáceres (1)</option>
-<option value="europe">Europe (4)</option>
-<option value="fleurieu">Fleurieu (1)</option>
-<option value="france">France (5)</option>
-<option value="global">Global (2)</option>
-<option value="greece">Greece (1)</option>
-<option value="guarda">Guarda (1)</option>
-<option value="israel">Israel (1)</option>
-<option value="italy">Italy (1)</option>
-<option value="japan">Japan (2)</option>
-<option value="jerusalem">Jerusalem (2)</option>
-<option value="karlsruhe">Karlsruhe (1)</option>
-<option value="latin-america">Latin America (1)</option>
-<option value="lisboa">Lisboa (3)</option>
-<option value="london">London (2)</option>
-<option value="lugo">Lugo (1)</option>
-<option value="madrid">Madrid (1)</option>
-<option value="manchester">Manchester (1)</option>
-<option value="marseille">Marseille (3)</option>
-<option value="miami">Miami (1)</option>
-<option value="milan">Milan (2)</option>
-<option value="mississauga">Mississauga (1)</option>
-<option value="montréal">Montréal (1)</option>
-<option value="netherlands">Netherlands (1)</option>
-<option value="new-orleans">New Orleans (1)</option>
-<option value="new-york">New York (4)</option>
-<option value="north-america">North America (1)</option>
-<option value="palestine">Palestine (1)</option>
-<option value="paris">Paris (6)</option>
-<option value="peru">Peru (1)</option>
-<option value="porto">Porto (2)</option>
-<option value="portugal">Portugal (1)</option>
-<option value="rio-de-janeiro">Rio de Janeiro (1)</option>
-<option value="rome">Rome (1)</option>
-<option value="san-francisco">San Francisco (1)</option>
-<option value="seattle">Seattle (2)</option>
-<option value="seoul">Seoul (1)</option>
-<option value="soria">Soria (1)</option>
-<option value="south-korea">South Korea (1)</option>
-<option value="spain">Spain (2)</option>
-<option value="switzerland">Switzerland (1)</option>
-<option value="tokio">Tokio (1)</option>
-<option value="torres-verdas">Torres verdas (1)</option>
-<option value="toulouse">Toulouse (1)</option>
-<option value="turkey">Turkey (1)</option>
-<option value="turkey---europe">Turkey - Europe (1)</option>
-<option value="united-kingdom">United Kingdom (1)</option>
-<option value="us">US (5)</option>
-<option value="valdivia">Valdivia (1)</option>
-<option value="washington">Washington (1)</option>
-<option value="world">World (24)</option></select>
+      <select class="cat-select" id="place-select">
+        <option value="all">All places</option>
+      </select>
     </div>
   </div>
 </div>
 
-<p class="counter" id="counter">85 entries</p>
+<p class="counter" id="counter">Loading entries…</p>
 <main>
   <div class="grid" id="grid">
-    
-  <a class="card card--submit" href="fiches/submit.html"
-     data-year="all" data-topic="" data-place="">
-    <div class="card-img"><span class="submit-icon">+</span></div>
-    <div class="card-body">
-      <div class="card-meta">Community</div>
-      <h2 class="card-title">Submit an entry</h2>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=soundscapes-of-warning"
-     data-year="2026" data-topic="" data-place="">
-    <div class="card-img"><img src="media/sow.png" alt="Soundscapes of Warning" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">March 2026</div>
-      <h2 class="card-title">Soundscapes of Warning</h2>
-      
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=reve-et-marne"
-     data-year="2025" data-topic="" data-place="">
-    <div class="card-img"><img src="media/image.png" alt="Rêve-et-Marne" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">January 2025</div>
-      <h2 class="card-title">Rêve-et-Marne</h2>
-      
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=antropophony"
-     data-year="2021" data-topic="geolocalized-recordings georeferenced-information live-measurements sound-recordings" data-place="france marseille">
-    <div class="card-img"><img src="media/anthropophony.png" alt="Antropophony" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2021</div>
-      <h2 class="card-title">Antropophony</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Live measurements</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=espace-despeces"
-     data-year="2021" data-topic="georeferenced-information nature" data-place="toulouse">
-    <div class="card-img"><img src="media/espaceespeces.png" alt="Espace d&#x27;espèces" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">March 2021</div>
-      <h2 class="card-title">Espace d&#x27;espèces</h2>
-      <div class="card-tags"><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Nature</span><span class="tag tag--place">📍 Toulouse</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=pachinko-road"
-     data-year="2021" data-topic="geolocalized-playlist geolocalized-recordings georeferenced-information pathway-listening sound-recordings sound-walks travel" data-place="japan">
-    <div class="card-img"><img src="media/pachinkoroad.png" alt="Pachinko Road" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">February 2021</div>
-      <h2 class="card-title">Pachinko Road</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized playlist</span><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Georeferenced information</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=noisy-city"
-     data-year="2020" data-topic="alternative-representation auralization my-selection sound-level-noise-map sound-levels" data-place="brussels">
-    <div class="card-img"><img src="media/noisycity.png" alt="Noisy City" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">September 2020</div>
-      <h2 class="card-title">Noisy City</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Auralization</span><span class="tag tag--topic">My Selection</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=sounds-of-the-forest"
-     data-year="2020" data-topic="geolocalized-recordings georeferenced-information nature sound-library sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/soundsoftheforest.png" alt="Sounds of the forest" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">September 2020</div>
-      <h2 class="card-title">Sounds of the forest</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Nature</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=atlas-a-sound-cartography-of-europe"
-     data-year="2020" data-topic="alternative-representation music my-selection" data-place="athens europe karlsruhe paris">
-    <div class="card-img"><img src="media/atlas.png" alt="ATLAS : a sound cartography of Europe" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">July 2020</div>
-      <h2 class="card-title">ATLAS : a sound cartography of Europe</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Music</span><span class="tag tag--topic">My Selection</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=cartographie-subjective-sonore"
-     data-year="2020" data-topic="alternative-representation sound-levels sound-recordings" data-place="switzerland">
-    <div class="card-img"><img src="media/artisticlab.png" alt="CARTOGRAPHIE SUBJECTIVE SONORE" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">March 2020</div>
-      <h2 class="card-title">CARTOGRAPHIE SUBJECTIVE SONORE</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Sound levels</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=ecouterlemonde"
-     data-year="2019" data-topic="geolocalized-recordings sound-library sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/ecouterlemonde.png" alt="Ecouter le monde" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">March 2019</div>
-      <h2 class="card-title">Ecouter le monde</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Sound library</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=hushcity"
-     data-year="2019" data-topic="geolocalized-recordings georeferenced-information perceptive-assessments sound-levels sound-quality" data-place="world">
-    <div class="card-img"><img src="media/hushcity.png" alt="Hushcity" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">March 2019</div>
-      <h2 class="card-title">Hushcity</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Perceptive Assessments</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=sonoteca-bahia-blanca"
-     data-year="2019" data-topic="geolocalized-recordings georeferenced-information patrimonial sound-library sound-recordings" data-place="bahia-blanca">
-    <div class="card-img"><img src="media/sonotecabahiablanca.png" alt="Sonoteca Bahia Blanca" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">January 2019</div>
-      <h2 class="card-title">Sonoteca Bahia Blanca</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Patrimonial</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=reimagine-the-game"
-     data-year="2018" data-topic="alternative-representation my-selection sound-levels" data-place="">
-    <div class="card-img"><img src="media/reimaginegame.png" alt="Reimagine the game" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">September 2018</div>
-      <h2 class="card-title">Reimagine the game</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Sound levels</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=sonic-wonders"
-     data-year="2018" data-topic="georeferenced-information historical-sounds my-selection patrimonial travel" data-place="world">
-    <div class="card-img"><img src="media/sonicwonder.png" alt="Sonic wonders" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">June 2018</div>
-      <h2 class="card-title">Sonic wonders</h2>
-      <div class="card-tags"><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Historical Sounds</span><span class="tag tag--topic">My Selection</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=vacant-lands-sound-map"
-     data-year="2018" data-topic="geolocalized-recordings georeferenced-information sound-recordings" data-place="lisboa">
-    <div class="card-img"><img src="media/lisbon.jpg" alt="Vacant lands sound map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">April 2018</div>
-      <h2 class="card-title">Vacant lands sound map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=mapping-ear-plug-hotspots"
-     data-year="2018" data-topic="georeferenced-information noise-annoyance" data-place="new-york seattle us">
-    <div class="card-img"><img src="media/trulia.png" alt="Mapping Ear Plug Hotspots" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">January 2018</div>
-      <h2 class="card-title">Mapping Ear Plug Hotspots</h2>
-      <div class="card-tags"><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Noise Annoyance</span><span class="tag tag--place">📍 New York</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=promenades-sonores"
-     data-year="2017" data-topic="geolocalized-recordings my-selection pathway-listening sound-walks" data-place="france marseille marseille">
-    <div class="card-img"><img src="media/promenades-sonores.png" alt="Promenades Sonores" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">July 2017</div>
-      <h2 class="card-title">Promenades Sonores</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Pathway Listening</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=sonospace-soundmaps"
-     data-year="2017" data-topic="alternative-representation my-selection sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/sonospaces.png" alt="Sonospace / Soundmaps" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">July 2017</div>
-      <h2 class="card-title">Sonospace / Soundmaps</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=shipping-noise"
-     data-year="2017" data-topic="sea---ocean sound-level-noise-map sound-levels" data-place="europe">
-    <div class="card-img"><img src="media/shipping-noise.png" alt="Shipping Noise" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">April 2017</div>
-      <h2 class="card-title">Shipping Noise</h2>
-      <div class="card-tags"><span class="tag tag--topic">Sea - Ocean</span><span class="tag tag--topic">Sound Level Noise Map</span><span class="tag tag--topic">Sound levels</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=national-transportation-noise-map"
-     data-year="2017" data-topic="sound-level-noise-map sound-levels" data-place="us">
-    <div class="card-img"><img src="media/national-transportation-noise-map.png" alt="National Transportation Noise Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">April 2017</div>
-      <h2 class="card-title">National Transportation Noise Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Sound Level Noise Map</span><span class="tag tag--topic">Sound levels</span><span class="tag tag--place">📍 US</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=mimi"
-     data-year="2017" data-topic="alternative-representation georeferenced-information health noise-annoyance sound-quality" data-place="world">
-    <div class="card-img"><img src="media/mimi.png" alt="Mimi" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">March 2017</div>
-      <h2 class="card-title">Mimi</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Health</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=cities-and-memory"
-     data-year="2017" data-topic="geolocalized-recordings georeferenced-information historical-sounds my-selection patrimonial sacred-spaces sound-library sound-mixing sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/citiesmemory.png" alt="Cities and Memory" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">February 2017</div>
-      <h2 class="card-title">Cities and Memory</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Historical Sounds</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=localingual"
-     data-year="2017" data-topic="alternative-representation geolocalized-recordings georeferenced-information languages my-selection sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/localingual.png" alt="Localingual" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">February 2017</div>
-      <h2 class="card-title">Localingual</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Georeferenced information</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=311-noise"
-     data-year="2017" data-topic="noise-annoyance" data-place="chicago new-york">
-    <div class="card-img"><img src="media/311noise.png" alt="311 Noise" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">January 2017</div>
-      <h2 class="card-title">311 Noise</h2>
-      <div class="card-tags"><span class="tag tag--topic">Noise Annoyance</span><span class="tag tag--place">📍 Chicago</span><span class="tag tag--place">📍 New York</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=leafblower-soundmap"
-     data-year="2016" data-topic="alternative-representation my-selection noise-annoyance perceptive-assessments sound-quality" data-place="boston">
-    <div class="card-img"><img src="media/leafblower.png" alt="Leafblower Soundmap" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2016</div>
-      <h2 class="card-title">Leafblower Soundmap</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Noise Annoyance</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=the-city-in-urban-parks-and-gardens"
-     data-year="2016" data-topic="alternative-representation sound-quality" data-place="paris">
-    <div class="card-img"><img src="media/the-city-in-urban-parks-and-gardens.png" alt="The City in Urban Parks and Gardens" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">October 2016</div>
-      <h2 class="card-title">The City in Urban Parks and Gardens</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Sound Quality</span><span class="tag tag--place">📍 Paris</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=rentlingo"
-     data-year="2016" data-topic="georeferenced-information noise-annoyance sound-level-noise-map sound-quality" data-place="us">
-    <div class="card-img"><img src="media/rentlingo.png" alt="Rentlingo" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">October 2016</div>
-      <h2 class="card-title">Rentlingo</h2>
-      <div class="card-tags"><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Noise Annoyance</span><span class="tag tag--topic">Sound Level Noise Map</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=soinumapa"
-     data-year="2016" data-topic="geolocalized-recordings" data-place="france spain">
-    <div class="card-img"><img src="media/soinumapa.png" alt="Soinumapa" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">October 2016</div>
-      <h2 class="card-title">Soinumapa</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--place">📍 France</span><span class="tag tag--place">📍 Spain</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=how-loud"
-     data-year="2016" data-topic="noise-annoyance sound-quality" data-place="us">
-    <div class="card-img"><img src="media/howloud.png" alt="How Loud ?" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">October 2016</div>
-      <h2 class="card-title">How Loud ?</h2>
-      <div class="card-tags"><span class="tag tag--topic">Noise Annoyance</span><span class="tag tag--topic">Sound Quality</span><span class="tag tag--place">📍 US</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=jerusalem-sound-map"
-     data-year="2016" data-topic="alternative-representation patrimonial" data-place="israel jerusalem jerusalem palestine">
-    <div class="card-img"><img src="media/jerusalem-sound-map.png" alt="Jerusalem Sound Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">September 2016</div>
-      <h2 class="card-title">Jerusalem Sound Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--place">📍 Israel</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=stereopublic"
-     data-year="2016" data-topic="geolocalized-recordings phone-app quietness sound-mixing sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/stereopublic.png" alt="StereoPublic" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">September 2016</div>
-      <h2 class="card-title">StereoPublic</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Phone App</span><span class="tag tag--topic">Quietness</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=global-modular-synth"
-     data-year="2016" data-topic="alternative-representation my-selection sound-mixing sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/global-modular-synth.png" alt="Global Modular Synth" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Global Modular Synth</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Sound Mixing</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=open-sound-new-orleans"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="new-orleans">
-    <div class="card-img"><img src="media/open-sound-new-orleans.png" alt="Open Sound New Orleans" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Open Sound New Orleans</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=quiet-areas-in-europe"
-     data-year="2016" data-topic="alternative-representation my-selection quietness sound-level-noise-map sound-levels" data-place="europe">
-    <div class="card-img"><img src="media/quiet-areas-in-europe.png" alt="Quiet areas in Europe" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Quiet areas in Europe</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Quietness</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=nature-soundmap"
-     data-year="2016" data-topic="geolocalized-recordings nature sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/nature-soundmap.png" alt="Nature SoundMap" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Nature SoundMap</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Nature</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=nysoundmap-sound-seeker"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="new-york">
-    <div class="card-img"><img src="media/sound-seeker.png" alt="NYSoundmap [Sound-Seeker]" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">NYSoundmap [Sound-Seeker]</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=miami-ville-sonore"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings video" data-place="">
-    <div class="card-img"><img src="media/miami-ville-sonore.png" alt="Miami ville sonore" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Miami ville sonore</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=mississauga-sound-map"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="mississauga">
-    <div class="card-img"><img src="media/mississauga.png" alt="Mississauga Sound Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Mississauga Sound Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=moma-studio-common-senses-sound-map"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/moma-studio.png" alt="MoMA Studio: Common Senses Sound Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">MoMA Studio: Common Senses Sound Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=montreal-sound-map"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="montréal">
-    <div class="card-img"><img src="media/montrc3a9al-sound-map.png" alt="Montréal Sound Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Montréal Sound Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=rumeur-reseau-de-mesure-de-lenvironnement-sonore"
-     data-year="2016" data-topic="alternative-representation georeferenced-information live-measurements measurements-network my-selection noise-annoyance sound-levels" data-place="paris">
-    <div class="card-img"><img src="media/rumeur.png" alt="Rumeur : réseau de mesure de l’environnement sonore" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Rumeur : réseau de mesure de l’environnement sonore</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Live measurements</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=mapa-sonoru-asturias"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="asturias">
-    <div class="card-img"><img src="media/mapa-sonoru-asturias.png" alt="Mapa Sonoru - Asturias" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Mapa Sonoru - Asturias</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=osterreichische-mediathek"
-     data-year="2016" data-topic="geolocalized-recordings historical-sounds pathway-listening patrimonial sound-recordings sound-walks" data-place="austria">
-    <div class="card-img"><img src="media/mediathek.png" alt="Österreichische Mediathek" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Österreichische Mediathek</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Historical Sounds</span><span class="tag tag--topic">Pathway Listening</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=manchester-peripheral"
-     data-year="2016" data-topic="music patrimonial sound-recordings" data-place="manchester">
-    <div class="card-img"><img src="media/manchester-peripheral.png" alt="Manchester: Peripheral" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Manchester: Peripheral</h2>
-      <div class="card-tags"><span class="tag tag--topic">Music</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=mapa-sonoro-y-estadistico-de-lenguas-indigenas-y-originarias-peru"
-     data-year="2016" data-topic="geolocalized-recordings languages my-selection patrimonial sound-recordings" data-place="peru">
-    <div class="card-img"><img src="media/mapa-sonoro-lenguas-peru.png" alt="Mapa Sonoro y Estadístico de Lenguas Indígenas y Originarias (Peru)" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Mapa Sonoro y Estadístico de Lenguas Indígenas y Originarias (Peru)</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Languages</span><span class="tag tag--topic">My Selection</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=curitiba-mapa-sonoro"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="curitiba">
-    <div class="card-img"><img src="media/curitiba.png" alt="Curitiba - Mapa Sonoro" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Curitiba - Mapa Sonoro</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=mapa-sonoro-de-lugo"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="lugo">
-    <div class="card-img"><img src="media/mapasonorolugo.png" alt="Mapa Sonoro de Lugo" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Mapa Sonoro de Lugo</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=listen-to-africa"
-     data-year="2016" data-topic="geolocalized-recordings sound-recordings travel" data-place="africa">
-    <div class="card-img"><img src="media/listentoafrica.png" alt="Listen to Africa" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Listen to Africa</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Sound recordings</span><span class="tag tag--topic">Travel</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=the-london-sound-survey"
-     data-year="2016" data-topic="alternative-representation geolocalized-recordings historical-sounds my-selection sound-recordings" data-place="london">
-    <div class="card-img"><img src="media/london-sound-survey.png" alt="The London Sound Survey" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">The London Sound Survey</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Historical Sounds</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=paris-xiiith-century"
-     data-year="2016" data-topic="alternative-representation auralization historical-sounds my-selection patrimonial" data-place="paris">
-    <div class="card-img"><img src="media/paris-xiii.png" alt="Paris XIIIth century" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Paris XIIIth century</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Auralization</span><span class="tag tag--topic">Historical Sounds</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=da_sense"
-     data-year="2016" data-topic="phone-app sound-level-noise-map sound-levels" data-place="world">
-    <div class="card-img"><img src="media/da_sense.png" alt="Da_sense" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Da_sense</h2>
-      <div class="card-tags"><span class="tag tag--topic">Phone App</span><span class="tag tag--topic">Sound Level Noise Map</span><span class="tag tag--topic">Sound levels</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=douro-mapa-sonoro"
-     data-year="2016" data-topic="alternative-representation auralization my-selection pathway-listening sound-mixing sound-recordings" data-place="porto soria">
-    <div class="card-img"><img src="media/douro-mapa-sonoro.png" alt="Douro Mapa Sonoro" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Douro Mapa Sonoro</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Auralization</span><span class="tag tag--topic">My Selection</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=cartophonies"
-     data-year="2016" data-topic="geolocalized-recordings sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/cartophonies.png" alt="Cartophonies" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Cartophonies</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Sound recordings</span><span class="tag tag--place">📍 World</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=brussels-soundmap"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="brussels">
-    <div class="card-img"><img src="media/brussels-sound-map1.png" alt="Brussels SoundMap" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Brussels SoundMap</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=canberra-noise-annoyances"
-     data-year="2016" data-topic="alternative-representation my-selection noise-annoyance" data-place="canberra">
-    <div class="card-img"><img src="media/canberra-noise-annoyance.png" alt="Canberra Noise Annoyances" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Canberra Noise Annoyances</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Noise Annoyance</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=inukjuak-sound-map"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="canada">
-    <div class="card-img"><img src="media/inukjuak-sound-map.png" alt="Inukjuak Sound Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Inukjuak Sound Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=istanbul-sound-map"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="turkey turkey---europe">
-    <div class="card-img"><img src="media/istanbul-sound-map.png" alt="Istanbul Sound Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Istanbul Sound Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=lisbon-soundmap"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="lisboa">
-    <div class="card-img"><img src="media/lisbon-soundmap.png" alt="Lisbon SoundMap" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Lisbon SoundMap</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=sons-do-porto"
-     data-year="2016" data-topic="geolocalized-recordings historical-sounds music my-selection patrimonial sound-recordings sound-walks" data-place="brazil rio-de-janeiro">
-    <div class="card-img"><img src="media/sonsdoporto.png" alt="Sons do Porto" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Sons do Porto</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Historical Sounds</span><span class="tag tag--topic">Music</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=global-soundmap"
-     data-year="2016" data-topic="alternative-representation my-selection" data-place="">
-    <div class="card-img"><img src="media/globalsoundmap.png" alt="Global Soundmap" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Global Soundmap</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">My Selection</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=het-geluid-van-nederland"
-     data-year="2016" data-topic="geolocalized-recordings historical-sounds patrimonial phone-app" data-place="netherlands">
-    <div class="card-img"><img src="media/het-geluid-van-nederland.png" alt="Het geluid van Nederland" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Het geluid van Nederland</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Historical Sounds</span><span class="tag tag--topic">Patrimonial</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=firenze-sound-map"
-     data-year="2016" data-topic="geolocalized-recordings pathway-listening sound-recordings sound-walks" data-place="">
-    <div class="card-img"><img src="media/firenzesoundmap.png" alt="Firenze Sound Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">August 2016</div>
-      <h2 class="card-title">Firenze Sound Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Pathway Listening</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=china-from-the-inside"
-     data-year="2016" data-topic="geolocalized-recordings patrimonial sound-recordings" data-place="china">
-    <div class="card-img"><img src="media/chinainside.png" alt="China From the Inside" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">July 2016</div>
-      <h2 class="card-title">China From the Inside</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Patrimonial</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=fleurieu-sound-map"
-     data-year="2016" data-topic="geolocalized-recordings nature sound-recordings sound-walks" data-place="fleurieu">
-    <div class="card-img"><img src="media/fleurieu.png" alt="Fleurieu Sound Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">July 2016</div>
-      <h2 class="card-title">Fleurieu Sound Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Nature</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=freesound"
-     data-year="2016" data-topic="geolocalized-recordings my-selection sound-recordings" data-place="world">
-    <div class="card-img"><img src="media/freesound.png" alt="Freesound" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">July 2016</div>
-      <h2 class="card-title">Freesound</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=mapa-sonoro-valdivia"
-     data-year="2016" data-topic="geolocalized-recordings georeferenced-information sound-level-noise-map sound-levels sound-recordings" data-place="chili valdivia">
-    <div class="card-img"><img src="media/valdiviamapasonoro.png" alt="Mapa Sonoro Valdivia" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">April 2016</div>
-      <h2 class="card-title">Mapa Sonoro Valdivia</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Sound Level Noise Map</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=global-noise-pollution-map"
-     data-year="2016" data-topic="sound-level-noise-map sound-levels" data-place="world">
-    <div class="card-img"><img src="media/global-noise-pollution-map.jpg" alt="Global Noise Pollution Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">April 2016</div>
-      <h2 class="card-title">Global Noise Pollution Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Sound Level Noise Map</span><span class="tag tag--topic">Sound levels</span><span class="tag tag--place">📍 World</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=good-city-life-chatty-maps"
-     data-year="2016" data-topic="alternative-representation georeferenced-information perceptive-assessments urban-sound-dictionary" data-place="barcelona boston chicago italy london madrid miami milan milan new-york rome san-francisco seattle washington world">
-    <div class="card-img"><img src="media/goodcitylife.png" alt="Good City Life - Chatty Maps" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">March 2016</div>
-      <h2 class="card-title">Good City Life - Chatty Maps</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">Georeferenced information</span><span class="tag tag--topic">Perceptive Assessments</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=musical-map"
-     data-year="2015" data-topic="geolocalized-playlist music" data-place="world">
-    <div class="card-img"><img src="media/musical-map.png" alt="Musical Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">December 2015</div>
-      <h2 class="card-title">Musical Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized playlist</span><span class="tag tag--topic">Music</span><span class="tag tag--place">📍 World</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=cityfield-recordings"
-     data-year="2015" data-topic="geolocalized-recordings sound-library" data-place="asia cáceres japan seoul south-korea tokio">
-    <div class="card-img"><img src="media/cityfieldrecordings.png" alt="CityField Recordings" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">CityField Recordings</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Sound library</span><span class="tag tag--place">📍 Asia</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=carte-sonore-caen"
-     data-year="2015" data-topic="alternative-representation my-selection pathway-listening sound-recordings" data-place="caen">
-    <div class="card-img"><img src="media/caen.png" alt="Carte sonore de Caen" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Carte sonore de Caen</h2>
-      <div class="card-tags"><span class="tag tag--topic">Alternative Representation</span><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Pathway Listening</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=cinco-cidades"
-     data-year="2015" data-topic="my-selection sound-mixing sound-recordings" data-place="braga guarda lisboa porto portugal torres-verdas">
-    <div class="card-img"><img src="media/cinco-cidades.png" alt="Cinco Cidades" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Cinco Cidades</h2>
-      <div class="card-tags"><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Sound Mixing</span><span class="tag tag--topic">Sound recordings</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=favorite-chicago-sounds"
-     data-year="2015" data-topic="geolocalized-recordings sound-recordings" data-place="chicago north-america us">
-    <div class="card-img"><img src="media/favorite-chicago-sound.png" alt="Favorite Chicago Sounds" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Favorite Chicago Sounds</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Sound recordings</span><span class="tag tag--place">📍 Chicago</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=belfast-sound-map"
-     data-year="2015" data-topic="geolocalized-recordings" data-place="belfast united-kingdom">
-    <div class="card-img"><img src="media/belfast.png" alt="Belfast Sound Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Belfast Sound Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--place">📍 Belfast</span><span class="tag tag--place">📍 United Kingdom</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=locus-sonus"
-     data-year="2015" data-topic="geolocalized-recordings live-streaming-recordings my-selection" data-place="world">
-    <div class="card-img"><img src="media/locus-sonus.png" alt="Locus Sonus" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Locus Sonus</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Live streaming recordings</span><span class="tag tag--topic">My Selection</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=aporee"
-     data-year="2015" data-topic="geolocalized-recordings my-selection phone-app" data-place="global world">
-    <div class="card-img"><img src="media/aporee.png" alt="Aporee" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Aporee</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">My Selection</span><span class="tag tag--topic">Phone App</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=andalucia-soundscape"
-     data-year="2015" data-topic="geolocalized-recordings historical-sounds nature sound-walks" data-place="andalucia">
-    <div class="card-img"><img src="media/andalucia-soundscape.png" alt="Andalucia SoundScape" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Andalucia SoundScape</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Historical Sounds</span><span class="tag tag--topic">Nature</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=athens-sound-map"
-     data-year="2015" data-topic="geolocalized-recordings" data-place="athens greece">
-    <div class="card-img"><img src="media/athens-soun-map.png" alt="Athens Sound Map" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Athens Sound Map</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--place">📍 Athens</span><span class="tag tag--place">📍 Greece</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=audiomapa"
-     data-year="2015" data-topic="geolocalized-recordings" data-place="global latin-america world">
-    <div class="card-img"><img src="media/audiomapa.png" alt="Audiomapa" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Audiomapa</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--place">📍 Global</span><span class="tag tag--place">📍 Latin America</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=sons-de-barcelona"
-     data-year="2015" data-topic="geolocalized-recordings" data-place="barcelona europe spain">
-    <div class="card-img"><img src="media/sons-de-barcelona.png" alt="Sons de Barcelona" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Sons de Barcelona</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--place">📍 Barcelona</span><span class="tag tag--place">📍 Europe</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=article-1"
-     data-year="2015" data-topic="geolocalized-recordings historical-sounds my-selection sound-walks" data-place="france paris">
-    <div class="card-img"><img src="media/ecouter-paris.png" alt="Ecouter Paris" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Ecouter Paris</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Historical Sounds</span><span class="tag tag--topic">My Selection</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=article-2"
-     data-year="2015" data-topic="geolocalized-recordings perceptive-assessments phone-app" data-place="world">
-    <div class="card-img"><img src="media/soundaroundyou.png" alt="Sound Around You" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Sound Around You</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Perceptive Assessments</span><span class="tag tag--topic">Phone App</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=article-3"
-     data-year="2015" data-topic="sound-level-noise-map sound-levels" data-place="france paris">
-    <div class="card-img"><img src="media/bruitparif.png" alt="Bruit Parif" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Bruit Parif</h2>
-      <div class="card-tags"><span class="tag tag--topic">Sound Level Noise Map</span><span class="tag tag--topic">Sound levels</span><span class="tag tag--place">📍 France</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=article-4"
-     data-year="2015" data-topic="perceptive-assessments phone-app sound-levels" data-place="world">
-    <div class="card-img"><img src="media/wide-noise.png" alt="Wide Noise" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Wide Noise</h2>
-      <div class="card-tags"><span class="tag tag--topic">Perceptive Assessments</span><span class="tag tag--topic">Phone App</span><span class="tag tag--topic">Sound levels</span></div>
-    </div>
-  </a>
-
-  <a class="card" href="fiche.html?slug=soundtransit"
-     data-year="2015" data-topic="geolocalized-recordings pathway-listening sound-library" data-place="world">
-    <div class="card-img"><img src="media/soundtransit1.png" alt="Sound Transit" loading="lazy"></div>
-    <div class="card-body">
-      <div class="card-meta">November 2015</div>
-      <h2 class="card-title">Sound Transit</h2>
-      <div class="card-tags"><span class="tag tag--topic">Geolocalized recordings</span><span class="tag tag--topic">Pathway Listening</span><span class="tag tag--topic">Sound library</span></div>
-    </div>
-  </a>
-    <div id="no-results"><p>No entries match your search.</p></div>
+    <a class="card card--submit" href="fiches/submit.html"
+       data-year="all" data-topic="" data-place="">
+      <div class="card-img"><span class="submit-icon">+</span></div>
+      <div class="card-body">
+        <div class="card-meta">Community</div>
+        <h2 class="card-title">Submit an entry</h2>
+      </div>
+    </a>
+    <div id="no-results" style="display:none"><p>No entries match your search.</p></div>
   </div>
 </main>
 
@@ -1046,34 +87,117 @@
     <a href="mailto:pierre.aumond@univ-eiffel.fr">Pierre Aumond</a>
     &nbsp;·&nbsp; Content sourced from referenced projects — not authored by the curator.</p>
 </footer>
-
 <script>
 (function(){
-  const cards=Array.from(document.querySelectorAll('.card'));
-  const counter=document.getElementById('counter');
-  const noRes=document.getElementById('no-results');
-  let aYear='all',aTopic='all',aPlace='all',sTerm='';
+  function sl(s){return String(s).toLowerCase().replace(/ /g,'-').replace(/\//g,'-');}
+  function escH(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+  var counter=document.getElementById('counter');
+  var headerCount=document.getElementById('header-count');
+  var noRes=document.getElementById('no-results');
+  var grid=document.getElementById('grid');
+  var yrGroup=document.getElementById('year-filter-group');
+  var topicSel=document.getElementById('topic-select');
+  var placeSel=document.getElementById('place-select');
+  var aYear='all',aTopic='all',aPlace='all',sTerm='';
+  var allCards=[];
+
   function apply(){
-    let v=0;
-    cards.forEach(c=>{
-      const ok=(aYear==='all'||c.dataset.year===aYear)
-             &&(aTopic==='all'||c.dataset.topic.split(' ').includes(aTopic))
-             &&(aPlace==='all'||c.dataset.place.split(' ').includes(aPlace))
-             &&(!sTerm||c.textContent.toLowerCase().includes(sTerm));
+    var v=0;
+    allCards.forEach(function(c){
+      var ok=(aYear==='all'||c.dataset.year===aYear)
+           &&(aTopic==='all'||c.dataset.topic.split(' ').includes(aTopic))
+           &&(aPlace==='all'||c.dataset.place.split(' ').includes(aPlace))
+           &&(!sTerm||c.textContent.toLowerCase().includes(sTerm));
       c.classList.toggle('hidden',!ok);if(ok)v++;
     });
     counter.textContent=v+(v===1?' entry':' entries');
     noRes.style.display=v===0?'block':'none';
   }
-  document.querySelectorAll('[data-type="year"]').forEach(b=>b.addEventListener('click',()=>{
-    document.querySelectorAll('[data-type="year"]').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');aYear=b.dataset.filter;apply();
-  }));
-  document.getElementById('topic-select').addEventListener('change',e=>{aTopic=e.target.value;apply();});
-  document.getElementById('place-select').addEventListener('change',e=>{aPlace=e.target.value;apply();});
-  let t;document.getElementById('search').addEventListener('input',e=>{
-    clearTimeout(t);t=setTimeout(()=>{sTerm=e.target.value.toLowerCase().trim();apply();},180);
-  });
+
+  fetch('data/entries.json')
+    .then(function(r){return r.json();})
+    .then(function(entries){
+      // Build filter option sets
+      var years=[],topicMap={},placeMap={};
+      entries.forEach(function(e){
+        if(e.year&&e.year!=='—'&&!years.includes(e.year))years.push(e.year);
+        e.topics.forEach(function(t){topicMap[t]=(topicMap[t]||0)+1;});
+        e.places.forEach(function(p){placeMap[p]=(placeMap[p]||0)+1;});
+      });
+      years.sort(function(a,b){return b-a;});
+
+      // Year buttons
+      years.forEach(function(y){
+        var btn=document.createElement('button');
+        btn.className='filter-btn';btn.dataset.filter=y;btn.dataset.type='year';
+        btn.textContent=y;yrGroup.appendChild(btn);
+      });
+
+      // Topic select
+      Object.keys(topicMap).sort(function(a,b){return a.toLowerCase().localeCompare(b.toLowerCase());})
+        .forEach(function(t){
+          var o=document.createElement('option');
+          o.value=sl(t);o.textContent=t+' ('+topicMap[t]+')';topicSel.appendChild(o);
+        });
+
+      // Place select
+      Object.keys(placeMap).sort(function(a,b){return a.toLowerCase().localeCompare(b.toLowerCase());})
+        .forEach(function(p){
+          var o=document.createElement('option');
+          o.value=sl(p);o.textContent=p+' ('+placeMap[p]+')';placeSel.appendChild(o);
+        });
+
+      // Render cards
+      var frag=document.createDocumentFragment();
+      entries.forEach(function(e){
+        var imgHtml=e.local_img
+          ?'<div class="card-img"><img src="'+escH(e.local_img)+'" alt="'+escH(e.title)+'" loading="lazy"></div>'
+          :'<div class="card-img card-img--placeholder"><span>♪</span></div>';
+        var allTags=e.topics.map(function(t){return {label:t,kind:'topic'}})
+                    .concat(e.places.map(function(p){return {label:p,kind:'place'}}))
+                    .slice(0,3);
+        var tagsHtml=allTags.map(function(tg){
+          return '<span class="tag tag--'+tg.kind+'">'+(tg.kind==='place'?'📍 ':'')+escH(tg.label)+'</span>';
+        }).join('');
+        var card=document.createElement('a');
+        card.className='card';
+        card.href='fiche.html?slug='+encodeURIComponent(e.slug);
+        card.dataset.year=e.year;
+        card.dataset.topic=e.topics.map(sl).join(' ');
+        card.dataset.place=e.places.map(sl).join(' ');
+        card.innerHTML=imgHtml
+          +'<div class="card-body">'
+            +'<div class="card-meta">'+escH(e.date)+'</div>'
+            +'<h2 class="card-title">'+escH(e.title)+'</h2>'
+            +(tagsHtml?'<div class="card-tags">'+tagsHtml+'</div>':'')
+          +'</div>';
+        frag.appendChild(card);
+        allCards.push(card);
+      });
+      // Insert cards before the no-results sentinel
+      grid.insertBefore(frag,noRes);
+
+      // Update header + counter
+      var n=entries.length;
+      counter.textContent=n+' entries';
+      headerCount.innerHTML=n+' entries&nbsp;&middot;&nbsp; 2015–2026 &nbsp;&middot;&nbsp;'
+        +'<a href="mailto:pierre.aumond@univ-eiffel.fr">contact</a>';
+
+      // Attach events after DOM is ready
+      document.querySelectorAll('[data-type="year"]').forEach(function(b){
+        b.addEventListener('click',function(){
+          document.querySelectorAll('[data-type="year"]').forEach(function(x){x.classList.remove('active');});
+          b.classList.add('active');aYear=b.dataset.filter;apply();
+        });
+      });
+      topicSel.addEventListener('change',function(e){aTopic=e.target.value;apply();});
+      placeSel.addEventListener('change',function(e){aPlace=e.target.value;apply();});
+      var t;document.getElementById('search').addEventListener('input',function(e){
+        clearTimeout(t);t=setTimeout(function(){sTerm=e.target.value.toLowerCase().trim();apply();},180);
+      });
+    })
+    .catch(function(){counter.textContent='Error loading entries.';});
 })();
 </script>
 </body>
