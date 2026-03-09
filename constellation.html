@@ -99,8 +99,29 @@
 
     /* ── Responsive ── */
     @media (max-width: 640px) {
-      .side-panel { width: 170px; font-size: .68rem; }
+      .side-panel {
+        width: 170px; font-size: .68rem;
+        transform: translateX(0);
+        transition: transform .25s ease, opacity .25s ease;
+      }
+      .side-panel.collapsed {
+        transform: translateX(-110%);
+        opacity: 0; pointer-events: none;
+      }
+      .panel-toggle {
+        display: flex;
+      }
       .constellation-wrap { height: calc(100vh - 180px); min-height: 360px; }
+    }
+    .panel-toggle {
+      display: none;            /* hidden on desktop */
+      position: absolute; top: .8rem; left: .8rem; z-index: 25;
+      align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: var(--radius-sm);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border); cursor: pointer;
+      font-size: 1.1rem; color: var(--heading); line-height: 1;
     }
   </style>
 </head>
@@ -121,6 +142,7 @@
     </div>
   </div>
   <div class="constellation-wrap" id="viz">
+    <button class="panel-toggle" id="panel-toggle" aria-label="Toggle legend">☰</button>
     <div class="side-panel" id="legend-panel">
       <input type="search" class="panel-search" id="search" placeholder="Search projects…" autocomplete="off">
       <div class="legend-title">Topics</div>
@@ -150,7 +172,16 @@
   var searchInput = document.getElementById('search');
   var infoText = document.getElementById('info-text');
   var legendList = document.getElementById('legend-list');
+  var panelToggle = document.getElementById('panel-toggle');
+  var legendPanel = document.getElementById('legend-panel');
   var W, H;
+
+  /* ── Mobile legend toggle ── */
+  if (window.innerWidth <= 640) legendPanel.classList.add('collapsed');
+  panelToggle.addEventListener('click', function () {
+    legendPanel.classList.toggle('collapsed');
+    panelToggle.textContent = legendPanel.classList.contains('collapsed') ? '☰' : '✕';
+  });
 
   function measure() {
     W = wrap.clientWidth;

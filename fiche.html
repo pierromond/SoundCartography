@@ -132,15 +132,20 @@
       });
 
       // ── Swipe navigation (touch) ──
-      var touchStartX = null;
+      var touchStartX = null, touchStartY = null;
       document.addEventListener('touchstart', function(e) {
-        if (e.touches.length === 1) touchStartX = e.touches[0].clientX;
+        if (e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
       }, {passive:true});
       document.addEventListener('touchend', function(e) {
         if (touchStartX === null) return;
         var dx = e.changedTouches[0].clientX - touchStartX;
-        touchStartX = null;
-        if (Math.abs(dx) < 60) return;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        touchStartX = null; touchStartY = null;
+        // Only fire if swipe is clearly horizontal: |dx|>100 and |dx|>2*|dy|
+        if (Math.abs(dx) < 100 || Math.abs(dx) < Math.abs(dy) * 2) return;
         if (dx > 0 && prevUrl) window.location.href = prevUrl;
         if (dx < 0 && nextUrl) window.location.href = nextUrl;
       });
