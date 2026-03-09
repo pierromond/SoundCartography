@@ -4,13 +4,35 @@
     "title": "Soundscapes of Warning",
     "date": "March 2026",
     "year": "2026",
-    "ext_url": "https://www.c2dh.uni.lu/soundscape",
+    "ext_url": "https://www.c2dh.uni.lu",
     "local_img": "media/sow.png",
     "topics": [],
     "places": [],
     "tags": [],
     "excerpt": "What is a warning sound? A sharp tone? A rising siren? A distant mechanical wail? Designed to grab attention, interrupt, alert — it may seem universal. But the sound of warning is not the same everywhere, nor has it rema…",
     "body": "<!-- wp:paragraph -->\n<p><strong>What is a warning sound? A sharp tone? A rising siren? A distant mechanical wail? Designed to grab attention, interrupt, alert — it may seem universal. </strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>But the sound of warning is not the same everywhere, nor has it remained the same over time. What counts as a warning depends on where you are, when you are there, and how your society has chosen to communicate danger. It differs across regions, evolves over time, and reflects specific cultural, historical, and technological circumstances. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The Soundscapes of Warning application explores alarm signals as cultural artefacts and part of our shared sound heritage. Developed as part of <a href=\"https://sonicwarnings.wordpress.com\" target=\"_blank\" rel=\"noreferrer noopener\">the larger Soundscapes of Warning research project</a> - in collaboration with <a href=\"https://www.c2dh.uni.lu\" target=\"_blank\" rel=\"noreferrer noopener\">the Centre for Contemporary and Digital History (C²DH) at the University of Luxembourg</a> - the application provides a space for investigating how public warnings are designed, how they differ across nations and regions, and what they reveal about the societies that produce them. It responds to ongoing calls in sound and media studies to reimagine the cultural significance of sirens, but more centrally, it challenges the illusion of warning sounds as natural or self-evident. It foregrounds their role as historically constructed media forms. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>To approach these sounds as historical and aesthetic objects, the application combines contextual comparison with designed modes of visualization. Users can navigate a range of sirens from different countries and contexts, gaining insight into how ideas of urgency, danger, and public communication have been shaped by cultural and political context. Each recording is translated into a custom-designed 3D object that reflects its sonic character, capturing qualities such as rhythm, pitch, duration, and intensity. These visual forms offer a new way of perceiving warning sounds, making their structure and stylistic features available to reflection and comparison. </p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>By combining geographic variation with aesthetic interpretation, the application creates a space where alarm signals can be understood not just as functional alerts, but as expressions of how societies have imagined crisis and mobilized collective attention. The Soundscapes of Warning application is both a research tool and a public interface – a space for listening differently, seeing warning anew, and rethinking how sound is used to shape public life.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>You can find more information about the project and its team on our website: <a href=\"https://sonicwarnings.wordpress.com\" target=\"_blank\" rel=\"noreferrer noopener\">sonicwarnings.wordpress.com.</a></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"lightbox\":{\"enabled\":false},\"id\":523,\"width\":\"300px\",\"sizeSlug\":\"full\",\"linkDestination\":\"custom\",\"align\":\"center\"} -->\n<figure class=\"wp-block-image aligncenter size-full is-resized\"><img src=\"media/sow.png\" alt=\"https://www.c2dh.uni.lu/soundscape/overview\" class=\"wp-image-523\" style=\"width:300px\" /><figcaption class=\"wp-element-caption\"><a href=\"https://www.c2dh.uni.lu/soundscape/overview\">https://www.c2dh.uni.lu/soundscape/overview</a></figcaption></figure>\n<!-- /wp:image -->"
+  },
+  {
+    "slug": "atlas-sonore-des-langues-regionales-de-france",
+    "title": "Atlas sonore des langues régionales de France",
+    "date": "March 2026",
+    "year": "2026",
+    "ext_url": "https://atlas.lisn.upsaclay.fr/?tab=map",
+    "local_img": "media/AtlasLangues.jpg",
+    "topics": [
+      "Geolocalized recordings",
+      "Georeferenced information",
+      "Languages",
+      "Patrimonial",
+      "Sound recordings"
+    ],
+    "places": [
+      "France",
+      "World"
+    ],
+    "tags": [],
+    "excerpt": "Une même fable d'Ésope peut être écoutée et lue en français et en langues régionales en cliquant sur les différents points de la carte. On peut retrouver les créoles et de nombreuses langues des Outre-mer, ainsi que les…",
+    "body": "<!-- wp:paragraph -->\n<p>Une même fable d'Ésope peut être écoutée et lue en français (en cliquant sur Paris) et en langues régionales (en cliquant sur les différents points de la carte). On peut retrouver les créoles et de nombreuses langues des Outre-mer, ainsi que ce qu'il est convenu d'appeler les langues non-territoriales de France, à partir de la carte du monde (en cliquant dans les rectangles qui leur sont consacrés) ou à partir des onglets correspondants. Les langues non-territoriales illustrées, comme le (r)romani et la langue des signes française (LSF) sont celles envers lesquelles l'État reconnaît avoir une responsabilité patrimoniale. On peut aussi découvrir, dans le voisinage de la France, les langues et dialectes d'Italie, de Belgique, de Suisse, d'Allemagne, de la Péninsule ibérique. On peut enfin accéder à des langues amérindiennes dans des pays tels que la Bolivie.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><em>The same Aesop's fable can be listened to and read in French (by clicking on Paris) and in regional languages (by clicking on the various points on the map). Creoles and many languages from overseas territories can be found, as well as what are commonly called the non-territorial languages of France, accessible from the world map (by clicking in the rectangles dedicated to them) or from the corresponding tabs. The non-territorial languages featured, such as (R)romani and French Sign Language (LSF), are those for which the State acknowledges a patrimonial responsibility. One can also discover, in the vicinity of France, the languages and dialects of Italy, Belgium, Switzerland, Germany, and the Iberian Peninsula. Finally, Amerindian languages can be accessed in countries such as Bolivia.</em></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"lightbox\":{\"enabled\":false},\"width\":\"300px\",\"sizeSlug\":\"full\",\"linkDestination\":\"custom\",\"align\":\"center\"} -->\n<figure class=\"wp-block-image aligncenter size-full is-resized\"><a href=\"https://atlas.lisn.upsaclay.fr/?tab=map\"><img src=\"media/AtlasLangues.jpg\" alt=\"Atlas sonore des langues régionales de France\" style=\"width:300px\" /></a><figcaption class=\"wp-element-caption\"><a href=\"https://atlas.lisn.upsaclay.fr/?tab=map\">https://atlas.lisn.upsaclay.fr/?tab=map</a></figcaption></figure>\n<!-- /wp:image -->"
   },
   {
     "slug": "reve-et-marne",
