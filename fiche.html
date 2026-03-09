@@ -25,7 +25,10 @@
 </header>
 <span class="wave-sep"></span>
 
-<nav class="fiche-nav"><a class="back-link" href="index.html">&larr; All entries</a></nav>
+<nav class="fiche-nav">
+  <a class="back-link" href="index.html">&larr; All entries</a>
+  <div class="fiche-nav-arrows" id="nav-arrows"></div>
+</nav>
 <div id="hero-zone"></div>
 
 <article class="fiche-main">
@@ -42,6 +45,11 @@
     Content sourced from the original project&#8217;s website &mdash; not authored by the curator.
   </div>
 </article>
+
+<section class="similar-section" id="similar-section" style="display:none">
+  <h3 class="similar-title">Similar projects</h3>
+  <div class="similar-grid" id="similar-grid"></div>
+</section>
 
 <footer class="site-footer">
   <p>Sound Cartography &nbsp;·&nbsp; Curated by Pierre Aumond
@@ -99,6 +107,70 @@
       } else { lk.style.display='none'; }
       // Body
       document.getElementById('entry-body').innerHTML = entry.body;
+
+      // ── Prev / Next navigation (top bar) ──
+      var idx = entries.indexOf(entry);
+      var arrows = document.getElementById('nav-arrows');
+      var ah = '';
+      if (idx > 0) {
+        var prev = entries[idx - 1];
+        ah += '<a class="nav-arrow" href="fiche.html?slug='+encodeURIComponent(prev.slug)+'" title="'+escH(prev.title)+'">&larr; Prev</a>';
+      }
+      if (idx < entries.length - 1) {
+        var next = entries[idx + 1];
+        ah += '<a class="nav-arrow" href="fiche.html?slug='+encodeURIComponent(next.slug)+'" title="'+escH(next.title)+'">Next &rarr;</a>';
+      }
+      arrows.innerHTML = ah;
+
+      // ── Keyboard arrow navigation ──
+      var prevUrl = idx > 0 ? 'fiche.html?slug='+encodeURIComponent(entries[idx-1].slug) : null;
+      var nextUrl = idx < entries.length-1 ? 'fiche.html?slug='+encodeURIComponent(entries[idx+1].slug) : null;
+      document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === 'ArrowLeft'  && prevUrl) window.location.href = prevUrl;
+        if (e.key === 'ArrowRight' && nextUrl) window.location.href = nextUrl;
+      });
+
+      // ── Swipe navigation (touch) ──
+      var touchStartX = null;
+      document.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 1) touchStartX = e.touches[0].clientX;
+      }, {passive:true});
+      document.addEventListener('touchend', function(e) {
+        if (touchStartX === null) return;
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        touchStartX = null;
+        if (Math.abs(dx) < 60) return;
+        if (dx > 0 && prevUrl) window.location.href = prevUrl;
+        if (dx < 0 && nextUrl) window.location.href = nextUrl;
+      });
+
+      // ── Similar entries (by shared topics) ──
+      var scored = entries.filter(function(e2){ return e2.slug !== entry.slug; }).map(function(e2){
+        var shared = 0;
+        entry.topics.forEach(function(t){ if(e2.topics.indexOf(t)!==-1) shared++; });
+        return {entry:e2, score:shared};
+      }).filter(function(s){ return s.score > 0; });
+      scored.sort(function(a,b){ return b.score - a.score || a.entry.title.localeCompare(b.entry.title); });
+      var top3 = scored.slice(0, 3);
+      if (top3.length) {
+        document.getElementById('similar-section').style.display = '';
+        var gridHtml = top3.map(function(s){
+          var e2 = s.entry;
+          var imgH = e2.local_img
+            ? '<div class="similar-img"><img src="'+escH(e2.local_img)+'" alt="'+escH(e2.title)+'" loading="lazy"></div>'
+            : '<div class="similar-img similar-img--placeholder"><span>♪</span></div>';
+          var sharedTopics = entry.topics.filter(function(t){ return e2.topics.indexOf(t)!==-1; }).slice(0,2);
+          var tagsH = sharedTopics.map(function(t){ return '<span class="tag tag--topic" style="font-size:.62rem">'+escH(t)+'</span>'; }).join('');
+          return '<a class="similar-card" href="fiche.html?slug='+encodeURIComponent(e2.slug)+'">' +
+            imgH +
+            '<div class="similar-body">' +
+            '<div class="similar-card-title">'+escH(e2.title)+'</div>' +
+            (tagsH ? '<div class="similar-tags">'+tagsH+'</div>' : '') +
+            '</div></a>';
+        }).join('');
+        document.getElementById('similar-grid').innerHTML = gridHtml;
+      }
     });
 })();
 </script>

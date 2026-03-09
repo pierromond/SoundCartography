@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sound Cartography — Constellation</title>
+  <meta name="description" content="Interactive constellation view of the Sound Cartography catalogue — explore relationships between sound map projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portfolio.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script data-goatcounter="https://soundcartography.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <link rel="canonical" href="https://pierromond.github.io/SoundCartography/constellation.html">
+  <style>
+    /* ── Constellation-specific styles ── */
+    .constellation-wrap {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 220px);
+      min-height: 480px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 0 auto;
+      max-width: var(--max-w);
+    }
+    .constellation-wrap svg { display: block; width: 100%; height: 100%; }
+
+    /* ── Tooltip ── */
+    .tip {
+      position: absolute; pointer-events: none;
+      background: var(--surface2); color: var(--text);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: .6rem .85rem; font-size: .78rem; line-height: 1.45;
+      max-width: 260px; box-shadow: 0 6px 24px rgba(0,0,0,.35);
+      opacity: 0; transition: opacity .15s;
+      z-index: 50;
+    }
+    .tip.visible { opacity: 1; }
+    .tip-title { font-weight: 600; color: var(--heading); margin-bottom: .25rem; }
+    .tip-tags  { display: flex; flex-wrap: wrap; gap: 4px; margin-top: .3rem; }
+    .tip-tag   { font-size: .68rem; padding: 1px 6px; border-radius: 4px;
+                 background: var(--accent-subtle); color: var(--accent); }
+
+    /* ── Side panel: legend + search ── */
+    .side-panel {
+      position: absolute; top: .8rem; left: .8rem;
+      width: 220px; max-height: calc(100% - 1.6rem);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: .7rem; overflow-y: auto; z-index: 20;
+      font-size: .74rem;
+    }
+    .side-panel::-webkit-scrollbar { width: 4px; }
+    .side-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .panel-search {
+      width: 100%; padding: .35rem .5rem; margin-bottom: .55rem;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); color: var(--text);
+      font-size: .74rem; font-family: inherit; outline: none;
+    }
+    .panel-search::placeholder { color: var(--text-dim); }
+    .panel-search:focus { border-color: var(--accent); }
+
+    .legend-title { font-weight: 600; color: var(--heading); margin-bottom: .4rem; }
+    .legend-item {
+      display: flex; align-items: center; gap: 6px;
+      padding: 2px 0; cursor: pointer; user-select: none;
+      transition: opacity .15s;
+    }
+    .legend-item.dimmed { opacity: .3; }
+    .legend-swatch {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    }
+    .legend-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .legend-count { color: var(--text-dim); margin-left: auto; flex-shrink: 0; }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex; align-items: center; gap: .4rem;
+      color: var(--accent); text-decoration: none; font-size: .82rem;
+      font-weight: 500; margin-bottom: .6rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* ── Info bar ── */
+    .info-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: var(--max-w); margin: 0 auto;
+      padding: .5rem 0; font-size: .76rem; color: var(--text-dim);
+    }
+    .info-bar span { opacity: .7; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .side-panel { width: 170px; font-size: .68rem; }
+      .constellation-wrap { height: calc(100vh - 180px); min-height: 360px; }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header" style="padding:3rem 2rem 2.5rem">
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">&#9728;</button>
+  <p class="site-eyebrow">Constellation view</p>
+  <h1 class="site-title" style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:.8rem">Sound Cartography</h1>
+  <p class="site-subtitle">Explore relationships between projects — proximity reflects shared topics.</p>
+</header>
+<span class="wave-sep"></span>
+
+<main style="padding:1rem 1.5rem 2rem;max-width:calc(var(--max-w) + 3rem);margin:0 auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;margin-bottom:.6rem">
+    <a href="index.html" class="back-link">← Back to catalogue</a>
+    <div class="info-bar" style="padding:0">
+      <span id="info-text">Loading…</span>
+    </div>
+  </div>
+  <div class="constellation-wrap" id="viz">
+    <div class="side-panel" id="legend-panel">
+      <input type="search" class="panel-search" id="search" placeholder="Search projects…" autocomplete="off">
+      <div class="legend-title">Topics</div>
+      <div id="legend-list"></div>
+    </div>
+    <div class="tip" id="tooltip"></div>
+  </div>
+</main>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Colour palette (25 hues, well-separated) ── */
+  var PALETTE = [
+    '#6495f0','#3ecfb2','#f0a864','#e06488','#a472e0',
+    '#56c47a','#e0c84a','#4ac4e0','#e07a4a','#c7608e',
+    '#7cbe46','#d05ce0','#48a0d0','#e0b86c','#56e0aa',
+    '#d0784e','#8888e0','#b8d048','#e060a8','#46bec0',
+    '#d8a038','#6a78d8','#70d870','#d86070','#a8a040'
+  ];
+
+  /* ── Globals ── */
+  var wrap = document.getElementById('viz');
+  var tip  = document.getElementById('tooltip');
+  var searchInput = document.getElementById('search');
+  var infoText = document.getElementById('info-text');
+  var legendList = document.getElementById('legend-list');
+  var W, H;
+
+  function measure() {
+    W = wrap.clientWidth;
+    H = wrap.clientHeight;
+  }
+  measure();
+
+  /* ── Load data ── */
+  d3.json('data/entries.json').then(function (entries) {
+
+    /* ── Build topic → colour map (sorted by frequency, rarest = most distinctive) ── */
+    var topicFreq = {};
+    entries.forEach(function (e) {
+      e.topics.forEach(function (t) { topicFreq[t] = (topicFreq[t] || 0) + 1; });
+    });
+    var topicsSorted = Object.keys(topicFreq).sort(function (a, b) { return topicFreq[a] - topicFreq[b]; });
+    var topicColor = {};
+    topicsSorted.forEach(function (t, i) { topicColor[t] = PALETTE[i % PALETTE.length]; });
+
+    /* ── Assign each entry a "dominant" (rarest) topic for colouring ── */
+    entries.forEach(function (e) {
+      var best = null, bestF = Infinity;
+      e.topics.forEach(function (t) {
+        if (topicFreq[t] < bestF) { bestF = topicFreq[t]; best = t; }
+      });
+      e._color = best ? topicColor[best] : '#888';
+      e._dominant = best || '—';
+    });
+
+    /* ── Compute shared-topic links (link if ≥ 2 shared topics) ── */
+    var links = [];
+    for (var i = 0; i < entries.length; i++) {
+      for (var j = i + 1; j < entries.length; j++) {
+        var shared = 0;
+        entries[i].topics.forEach(function (t) {
+          if (entries[j].topics.indexOf(t) !== -1) shared++;
+        });
+        if (shared >= 1) {
+          links.push({ source: i, target: j, value: shared });
+        }
+      }
+    }
+
+    /* ── Nodes ── */
+    var nodes = entries.map(function (e, idx) {
+      return {
+        id: idx,
+        slug: e.slug,
+        title: e.title,
+        topics: e.topics,
+        places: e.places,
+        img: e.local_img || null,
+        r: 10 + Math.sqrt(e.topics.length) * 5,
+        color: e._color,
+        dominant: e._dominant
+      };
+    });
+
+    infoText.textContent = nodes.length + ' projects · ' + links.length + ' connections';
+
+    /* ── Build legend ── */
+    var activeTopic = null;
+    var topicsByFreqDesc = topicsSorted.slice().reverse();
+    topicsByFreqDesc.forEach(function (t) {
+      var item = document.createElement('div');
+      item.className = 'legend-item';
+      item.innerHTML =
+        '<span class="legend-swatch" style="background:' + topicColor[t] + '"></span>' +
+        '<span class="legend-label" title="' + t + '">' + t + '</span>' +
+        '<span class="legend-count">' + topicFreq[t] + '</span>';
+      item.addEventListener('click', function () {
+        if (activeTopic === t) { activeTopic = null; resetHighlight(); }
+        else { activeTopic = t; highlightTopic(t); }
+        syncLegend();
+      });
+      legendList.appendChild(item);
+    });
+
+    function syncLegend() {
+      var items = legendList.querySelectorAll('.legend-item');
+      items.forEach(function (el, idx) {
+        el.classList.toggle('dimmed', activeTopic !== null && topicsByFreqDesc[idx] !== activeTopic);
+      });
+    }
+
+    /* ── SVG ── */
+    var svg = d3.select('#viz').insert('svg', '.tip')
+      .attr('width', W).attr('height', H);
+
+    var g = svg.append('g');
+
+    /* ── Defs: image patterns for nodes ── */
+    var defs = svg.append('defs');
+    nodes.forEach(function (d) {
+      if (!d.img) return;
+      defs.append('pattern')
+        .attr('id', 'pat-' + d.id)
+        .attr('patternUnits', 'objectBoundingBox')
+        .attr('width', 1).attr('height', 1)
+        .append('image')
+          .attr('href', d.img)
+          .attr('width', d.r * 2)
+          .attr('height', d.r * 2)
+          .attr('preserveAspectRatio', 'xMidYMid slice');
+    });
+
+    /* ── Zoom ── */
+    var zoom = d3.zoom()
+      .scaleExtent([0.3, 5])
+      .on('zoom', function (ev) { g.attr('transform', ev.transform); });
+    svg.call(zoom);
+
+    /* ── Links ── */
+    var linkSel = g.append('g')
+      .attr('class', 'links')
+      .selectAll('line')
+      .data(links)
+      .join('line')
+      .attr('stroke', 'var(--border)')
+      .attr('stroke-width', function (d) { return d.value >= 2 ? 0.4 + d.value * 0.3 : 0; })
+      .attr('stroke-opacity', function (d) { return d.value >= 2 ? 0.35 : 0; });
+
+    /* ── Nodes ── */
+    var nodeSel = g.append('g')
+      .attr('class', 'nodes')
+      .selectAll('circle')
+      .data(nodes)
+      .join('circle')
+      .attr('r', function (d) { return d.r; })
+      .attr('fill', function (d) { return d.img ? 'url(#pat-' + d.id + ')' : d.color; })
+      .attr('fill-opacity', function (d) { return d.img ? 1 : 0.82; })
+      .attr('stroke', function (d) { return d.color; })
+      .attr('stroke-width', function (d) { return d.img ? 2.5 : 1.5; })
+      .attr('stroke-opacity', function (d) { return d.img ? 0.85 : 0.4; })
+      .attr('cursor', 'pointer')
+      .call(d3.drag()
+        .on('start', function (ev, d) { if (!ev.active) sim.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; })
+        .on('drag',  function (ev, d) { d.fx = ev.x; d.fy = ev.y; })
+        .on('end',   function (ev, d) { if (!ev.active) sim.alphaTarget(0); d.fx = null; d.fy = null; })
+      );
+
+    /* ── Labels (only on large screens, shown on hover) ── */
+    var labelSel = g.append('g')
+      .attr('class', 'labels')
+      .selectAll('text')
+      .data(nodes)
+      .join('text')
+      .text(function (d) { return d.title; })
+      .attr('font-size', '8px')
+      .attr('font-family', 'Inter, sans-serif')
+      .attr('fill', 'var(--text-dim)')
+      .attr('text-anchor', 'middle')
+      .attr('dy', function (d) { return d.r + 11; })
+      .attr('opacity', 0)
+      .attr('pointer-events', 'none');
+
+    /* ── Tooltip ── */
+    nodeSel
+      .on('mouseover', function (ev, d) {
+        d3.select(this).attr('fill-opacity', 1).attr('stroke-opacity', 1).attr('stroke-width', 3);
+        labelSel.filter(function (l) { return l.id === d.id; }).attr('opacity', 1);
+        var tagsHtml = d.topics.map(function (t) {
+          return '<span class="tip-tag" style="background:' + topicColor[t] + '22;color:' + topicColor[t] + '">' + t + '</span>';
+        }).join('');
+        tip.innerHTML =
+          '<div class="tip-title">' + escH(d.title) + '</div>' +
+          (d.places.length ? '<div style="font-size:.7rem;color:var(--text-dim)">📍 ' + d.places.join(', ') + '</div>' : '') +
+          '<div class="tip-tags">' + tagsHtml + '</div>';
+        tip.classList.add('visible');
+      })
+      .on('mousemove', function (ev) {
+        var rect = wrap.getBoundingClientRect();
+        var x = ev.clientX - rect.left + 14;
+        var y = ev.clientY - rect.top - 10;
+        if (x + 270 > W) x = ev.clientX - rect.left - 270;
+        if (y + 100 > H) y = H - 110;
+        tip.style.left = x + 'px';
+        tip.style.top  = y + 'px';
+      })
+      .on('mouseout', function (ev, d) {
+        d3.select(this)
+          .attr('fill-opacity', d.img ? 1 : 0.82)
+          .attr('stroke-opacity', d.img ? 0.85 : 0.4)
+          .attr('stroke-width', d.img ? 2.5 : 1.5);
+        labelSel.filter(function (l) { return l.id === d.id; }).attr('opacity', 0);
+        tip.classList.remove('visible');
+      })
+      .on('click', function (ev, d) {
+        window.location.href = 'fiche.html?slug=' + encodeURIComponent(d.slug);
+      });
+
+    /* ── Simulation ── */
+    var sim = d3.forceSimulation(nodes)
+      .force('link', d3.forceLink(links).id(function (d) { return d.id; })
+        .distance(function (d) { return d.value >= 3 ? 40 : d.value === 2 ? 80 : 150; })
+        .strength(function (d) { return d.value >= 3 ? 0.6 : d.value === 2 ? 0.3 : 0.08; }))
+      .force('charge', d3.forceManyBody().strength(-250).distanceMax(500))
+      .force('center', d3.forceCenter(W / 2, H / 2))
+      .force('collision', d3.forceCollide().radius(function (d) { return d.r + 6; }))
+      .force('x', d3.forceX(W / 2).strength(0.015))
+      .force('y', d3.forceY(H / 2).strength(0.015))
+      .on('tick', tick);
+
+    function tick() {
+      linkSel
+        .attr('x1', function (d) { return d.source.x; })
+        .attr('y1', function (d) { return d.source.y; })
+        .attr('x2', function (d) { return d.target.x; })
+        .attr('y2', function (d) { return d.target.y; });
+      nodeSel
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; });
+      labelSel
+        .attr('x', function (d) { return d.x; })
+        .attr('y', function (d) { return d.y; });
+    }
+
+    /* ── Highlight helpers ── */
+    function highlightTopic(t) {
+      nodeSel.attr('fill-opacity', function (d) { return d.topics.indexOf(t) !== -1 ? 1 : 0.08; })
+             .attr('stroke-opacity', function (d) { return d.topics.indexOf(t) !== -1 ? 0.8 : 0.04; });
+      linkSel.attr('stroke-opacity', function (d) {
+        var s = typeof d.source === 'object' ? d.source : nodes[d.source];
+        var tg = typeof d.target === 'object' ? d.target : nodes[d.target];
+        return (s.topics.indexOf(t) !== -1 && tg.topics.indexOf(t) !== -1) ? 0.5 : 0.03;
+      });
+    }
+
+    function resetHighlight() {
+      nodeSel.attr('fill-opacity', function (d) { return d.img ? 1 : 0.82; })
+             .attr('stroke-opacity', function (d) { return d.img ? 0.85 : 0.4; });
+      linkSel.attr('stroke-opacity', 0.35);
+    }
+
+    /* ── Search ── */
+    var searchTimeout;
+    searchInput.addEventListener('input', function () {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(function () {
+        var q = searchInput.value.toLowerCase().trim();
+        if (activeTopic) { activeTopic = null; syncLegend(); }
+        if (!q) { resetHighlight(); return; }
+        nodeSel.attr('fill-opacity', function (d) { return d.title.toLowerCase().indexOf(q) !== -1 ? 1 : 0.08; })
+               .attr('stroke-opacity', function (d) { return d.title.toLowerCase().indexOf(q) !== -1 ? 0.8 : 0.04; });
+        linkSel.attr('stroke-opacity', 0.05);
+      }, 200);
+    });
+
+    /* ── Resize ── */
+    window.addEventListener('resize', function () {
+      measure();
+      svg.attr('width', W).attr('height', H);
+      sim.force('center', d3.forceCenter(W / 2, H / 2));
+      sim.force('x', d3.forceX(W / 2).strength(0.015));
+      sim.force('y', d3.forceY(H / 2).strength(0.015));
+      sim.alpha(0.3).restart();
+    });
+
+  }).catch(function (err) {
+    infoText.textContent = 'Error loading data.';
+    console.error(err);
+  });
+
+  /* ── Util ── */
+  function escH(s) {
+    var d = document.createElement('div'); d.textContent = s;
+    return d.innerHTML;
+  }
+
+  /* ── Theme toggle ── */
+  var root = document.documentElement;
+  var btn  = document.getElementById('theme-toggle');
+  function isDark() {
+    var t = root.getAttribute('data-theme');
+    return t ? t === 'dark' : !window.matchMedia('(prefers-color-scheme:light)').matches;
+  }
+  function syncTheme() { btn.textContent = isDark() ? '☀' : '☽'; }
+  btn.addEventListener('click', function () {
+    var n = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', n);
+    localStorage.setItem('theme', n);
+    syncTheme();
+  });
+  syncTheme();
+})();
+</script>
+</body>
+</html>
