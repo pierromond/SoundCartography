@@ -20,5 +20,189 @@
     "tags": [],
     "excerpt": "Une même fable d'Ésope peut être écoutée et lue en français et en langues régionales en cliquant sur les différents points de la carte. On peut retrouver les créoles et de nombreuses langues des Outre-mer, ainsi que les…",
     "body": "<!-- wp:paragraph -->\n<p>Une même fable d'Ésope peut être écoutée et lue en français (en cliquant sur Paris) et en langues régionales (en cliquant sur les différents points de la carte). On peut retrouver les créoles et de nombreuses langues des Outre-mer, ainsi que ce qu'il est convenu d'appeler les langues non-territoriales de France, à partir de la carte du monde (en cliquant dans les rectangles qui leur sont consacrés) ou à partir des onglets correspondants. Les langues non-territoriales illustrées, comme le (r)romani et la langue des signes française (LSF) sont celles envers lesquelles l'État reconnaît avoir une responsabilité patrimoniale. On peut aussi découvrir, dans le voisinage de la France, les langues et dialectes d'Italie, de Belgique, de Suisse, d'Allemagne, de la Péninsule ibérique. On peut enfin accéder à des langues amérindiennes dans des pays tels que la Bolivie.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><em>The same Aesop's fable can be listened to and read in French (by clicking on Paris) and in regional languages (by clicking on the various points on the map). Creoles and many languages from overseas territories can be found, as well as what are commonly called the non-territorial languages of France, accessible from the world map (by clicking in the rectangles dedicated to them) or from the corresponding tabs. The non-territorial languages featured, such as (R)romani and French Sign Language (LSF), are those for which the State acknowledges a patrimonial responsibility. One can also discover, in the vicinity of France, the languages and dialects of Italy, Belgium, Switzerland, Germany, and the Iberian Peninsula. Finally, Amerindian languages can be accessed in countries such as Bolivia.</em></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"lightbox\":{\"enabled\":false},\"width\":\"300px\",\"sizeSlug\":\"full\",\"linkDestination\":\"custom\",\"align\":\"center\"} -->\n<figure class=\"wp-block-image aligncenter size-full is-resized\"><a href=\"https://atlas.lisn.upsaclay.fr/?tab=map\"><img src=\"media/AtlasLangues.jpg\" alt=\"Atlas sonore des langues régionales de France\" style=\"width:300px\" /></a><figcaption class=\"wp-element-caption\"><a href=\"https://atlas.lisn.upsaclay.fr/?tab=map\">https://atlas.lisn.upsaclay.fr/?tab=map</a></figcaption></figure>\n<!-- /wp:image -->"
+  },
+  {
+    "slug": "reve-et-marne",
+    "topics": ["Alternative Representation", "Geolocalized recordings", "Sound recordings", "Sound Walks"],
+    "places": ["France"]
+  },
+  {
+    "slug": "soundscapes-of-warning",
+    "topics": ["Alternative Representation", "Georeferenced information", "Historical Sounds", "Sound recordings"],
+    "places": ["World"]
+  },
+  {
+    "slug": "antropophony",
+    "_note": "Removed 'Live measurements' (archive artistique, pas réseau de capteurs). Ajout Patrimonial.",
+    "topics": ["Geolocalized recordings", "Georeferenced information", "Patrimonial", "Sound recordings"],
+    "places": ["France", "Marseille"]
+  },
+  {
+    "slug": "espace-despeces",
+    "_note": "Ajout Geolocalized recordings et Sound recordings (série sonore géolocalisée).",
+    "topics": ["Geolocalized recordings", "Georeferenced information", "Nature", "Sound recordings"],
+    "places": ["France", "Toulouse"]
+  },
+  {
+    "slug": "cartographie-subjective-sonore",
+    "_note": "Suppression 'Sound levels' (pas d'acoustimétrie). Ajout Geolocalized recordings, Pathway Listening, Perceptive Assessments.",
+    "topics": ["Alternative Representation", "Geolocalized recordings", "Pathway Listening", "Perceptive Assessments", "Sound recordings"],
+    "places": ["Switzerland"]
+  },
+  {
+    "slug": "hushcity",
+    "_note": "Ajout Quietness (objectif principal : trouver lieux calmes) et Phone App (app iOS/Android).",
+    "topics": ["Geolocalized recordings", "Georeferenced information", "Perceptive Assessments", "Phone App", "Quietness", "Sound levels", "Sound Quality"],
+    "places": ["World"]
+  },
+  {
+    "slug": "atlas-a-sound-cartography-of-europe",
+    "_note": "Ajout Geolocalized recordings (sources sonores géolocalisées collectées auprès du public).",
+    "topics": ["Alternative Representation", "Geolocalized recordings", "Music", "My Selection"],
+    "places": ["Athens", "Europe", "Karlsruhe", "Paris"]
+  },
+  {
+    "slug": "mimi",
+    "_note": "Suppression Noise Annoyance et Sound Quality (carte de santé auditive mondiale, pas annoyance/qualité).",
+    "topics": ["Alternative Representation", "Georeferenced information", "Health"],
+    "places": ["World"]
+  },
+  {
+    "slug": "311-noise",
+    "_note": "Ajout Georeferenced information (carte géoréférencée de plaintes).",
+    "topics": ["Georeferenced information", "Noise Annoyance"],
+    "places": ["Chicago", "New York", "US"]
+  },
+  {
+    "slug": "soinumapa",
+    "_note": "Ajout Patrimonial et Sound recordings (archive ouverte 1500+ enregistrements Pays Basque).",
+    "topics": ["Geolocalized recordings", "Patrimonial", "Sound recordings"],
+    "places": ["France", "Spain"]
+  },
+  {
+    "slug": "how-loud",
+    "_note": "Ajout Sound Level Noise Map et Georeferenced information (système Soundscore de cartographie du bruit).",
+    "topics": ["Georeferenced information", "Noise Annoyance", "Sound Level Noise Map", "Sound Quality"],
+    "places": ["US"]
+  },
+  {
+    "slug": "jerusalem-sound-map",
+    "_note": "Fix Jerusalem doublon. Ajout Geolocalized recordings et Sacred Spaces (sons religieux géolocalisés).",
+    "topics": ["Alternative Representation", "Geolocalized recordings", "Patrimonial", "Sacred Spaces"],
+    "places": ["Israel", "Jerusalem", "Palestine"]
+  },
+  {
+    "slug": "stereopublic",
+    "_note": "Suppression Sound Mixing (app de navigation vers lieux calmes, pas de mixage).",
+    "topics": ["Geolocalized recordings", "Phone App", "Quietness", "Sound recordings"],
+    "places": ["World"]
+  },
+  {
+    "slug": "miami-ville-sonore",
+    "_note": "Ajout Miami dans les lieux (projet cartographie sonore de Miami).",
+    "topics": ["Geolocalized recordings", "Patrimonial", "Sound recordings", "Video"],
+    "places": ["Miami"]
+  },
+  {
+    "slug": "da_sense",
+    "_note": "Ajout Measurements network et Live measurements (plateforme capteurs Smart Cities).",
+    "topics": ["Live measurements", "Measurements network", "Phone App", "Sound Level Noise Map", "Sound levels"],
+    "places": ["World"]
+  },
+  {
+    "slug": "douro-mapa-sonoro",
+    "_note": "Ajout Geolocalized recordings. Soria et Porto conservés (source du Douro en Soria, embouchure à Porto).",
+    "topics": ["Alternative Representation", "Auralization", "Geolocalized recordings", "My Selection", "Pathway Listening", "Sound Mixing", "Sound recordings"],
+    "places": ["Porto", "Soria"]
+  },
+  {
+    "slug": "promenades-sonores",
+    "_note": "Fix doublon Marseille dans places.",
+    "topics": ["Geolocalized recordings", "My Selection", "Pathway Listening", "Sound Walks"],
+    "places": ["France", "Marseille"]
+  },
+  {
+    "slug": "mapping-ear-plug-hotspots",
+    "_note": "Ajout San Francisco (mentionné dans le texte : Seattle, New York, San Francisco).",
+    "topics": ["Georeferenced information", "Noise Annoyance"],
+    "places": ["New York", "San Francisco", "Seattle", "US"]
+  },
+  {
+    "slug": "freesound",
+    "_note": "Ajout Sound library (THE base de sons collaborative de référence).",
+    "topics": ["Geolocalized recordings", "My Selection", "Sound library", "Sound recordings"],
+    "places": ["World"]
+  },
+  {
+    "slug": "sonospace-soundmaps",
+    "_note": "Ajout Sound library (archive sonore et éditeur audio).",
+    "topics": ["Alternative Representation", "My Selection", "Sound library", "Sound recordings"],
+    "places": ["World"]
+  },
+  {
+    "slug": "cartophonies",
+    "_note": "Ajout Georeferenced information et Patrimonial (CRESSON, exploration expérience sonore des milieux habités).",
+    "topics": ["Geolocalized recordings", "Georeferenced information", "Patrimonial", "Sound recordings"],
+    "places": ["World"]
+  },
+  {
+    "slug": "global-soundmap",
+    "_note": "Ajout Geolocalized recordings et World dans places (art project avec sons géolocalisés).",
+    "topics": ["Alternative Representation", "Geolocalized recordings", "My Selection"],
+    "places": ["World"]
+  },
+  {
+    "slug": "firenze-sound-map",
+    "_note": "Ajout Italy dans places (Florence est en Italie, pas de place Florence dans le système).",
+    "topics": ["Geolocalized recordings", "Pathway Listening", "Sound recordings", "Sound Walks"],
+    "places": ["Italy"]
+  },
+  {
+    "slug": "belfast-sound-map",
+    "_note": "Ajout Sound recordings et Patrimonial (archive communautaire).",
+    "topics": ["Geolocalized recordings", "Patrimonial", "Sound recordings"],
+    "places": ["Belfast", "United Kingdom"]
+  },
+  {
+    "slug": "aporee",
+    "_note": "Ajout Sound library et Sound recordings (corpus mondial de sons, outils collaborative).",
+    "topics": ["Geolocalized recordings", "My Selection", "Phone App", "Sound library", "Sound recordings"],
+    "places": ["Global", "World"]
+  },
+  {
+    "slug": "athens-sound-map",
+    "_note": "Ajout Sound recordings et Patrimonial.",
+    "topics": ["Geolocalized recordings", "Patrimonial", "Sound recordings"],
+    "places": ["Athens", "Greece"]
+  },
+  {
+    "slug": "audiomapa",
+    "_note": "Ajout Sound recordings et Patrimonial (archive collaborative Amérique Latine).",
+    "topics": ["Geolocalized recordings", "Patrimonial", "Sound recordings"],
+    "places": ["Global", "Latin America", "World"]
+  },
+  {
+    "slug": "sons-de-barcelona",
+    "_note": "Ajout Sound recordings et Patrimonial.",
+    "topics": ["Geolocalized recordings", "Patrimonial", "Sound recordings"],
+    "places": ["Barcelona", "Europe", "Spain"]
+  },
+  {
+    "slug": "manchester-peripheral",
+    "_note": "Ajout Geolocalized recordings (carte sonore communautaire).",
+    "topics": ["Geolocalized recordings", "Music", "Patrimonial", "Sound recordings"],
+    "places": ["Manchester"]
+  },
+  {
+    "slug": "cinco-cidades",
+    "_note": "Ajout Geolocalized recordings et Patrimonial (documentation sonore 5 villes portugaises).",
+    "topics": ["Geolocalized recordings", "My Selection", "Patrimonial", "Sound Mixing", "Sound recordings"],
+    "places": ["Braga", "Guarda", "Lisboa", "Porto", "Portugal", "Torres verdas"]
+  },
+  {
+    "slug": "good-city-life-chatty-maps",
+    "_note": "Fix doublon Milan dans places.",
+    "topics": ["Alternative Representation", "Georeferenced information", "Perceptive Assessments", "Urban sound dictionary"],
+    "places": ["Barcelona", "Boston", "Chicago", "Italy", "London", "Madrid", "Miami", "Milan", "New York", "Rome", "San Francisco", "Seattle", "Washington", "World"]
   }
 ]
