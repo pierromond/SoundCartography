@@ -213,7 +213,31 @@
       e._dominant = best || '—';
     });
 
-    /* ── Compute shared-topic links (≥ 2 shared topics for force, keep ≥ 1 for display) ── */
+    /* ── Topic co-occurrence matrix → semantic ordering around ring ── */
+    var cooc = {};
+    topicsSorted.forEach(function (t) { cooc[t] = {}; });
+    entries.forEach(function (e) {
+      e.topics.forEach(function (t1) {
+        e.topics.forEach(function (t2) {
+          if (t1 !== t2) cooc[t1][t2] = (cooc[t1][t2] || 0) + 1;
+        });
+      });
+    });
+    // Greedy nearest-neighbour: start from rarest topic, always pick most co-occurring next
+    var _pool = topicsSorted.slice();
+    var orderedTopics = [ _pool.shift() ];
+    while (_pool.length > 0) {
+      var _last = orderedTopics[orderedTopics.length - 1];
+      var _best = _pool[0], _bestScore = -1;
+      _pool.forEach(function (t) {
+        var s = cooc[_last][t] || 0;
+        if (s > _bestScore) { _bestScore = s; _best = t; }
+      });
+      orderedTopics.push(_best);
+      _pool.splice(_pool.indexOf(_best), 1);
+    }
+
+    /* ── Jaccard-similarity links (threshold ≥ 0.15) ── */
     var links = [];
     for (var i = 0; i < entries.length; i++) {
       for (var j = i + 1; j < entries.length; j++) {
@@ -221,11 +245,9 @@
         entries[i].topics.forEach(function (t) {
           if (entries[j].topics.indexOf(t) !== -1) shared++;
         });
-        if (shared >= 2) {
-          links.push({
-            source: i, target: j, value: shared,
-            crossCluster: entries[i]._dominant !== entries[j]._dominant
-          });
+        var jac = shared / (entries[i].topics.length + entries[j].topics.length - shared);
+        if (jac >= 0.15) {
+          links.push({ source: i, target: j, value: jac });
         }
       }
     }
@@ -306,8 +328,8 @@
       .data(links)
       .join('line')
       .attr('stroke', 'var(--border)')
-      .attr('stroke-width', function (d) { return d.value >= 2 ? 0.4 + d.value * 0.3 : 0; })
-      .attr('stroke-opacity', function (d) { return d.value >= 2 ? 0.35 : 0; });
+      .attr('stroke-width', function (d) { return 0.3 + d.value * 2.5; })
+      .attr('stroke-opacity', function (d) { return 0.08 + d.value * 0.45; });
 
     /* ── Nodes ── */
     var nodeSel = g.append('g')
@@ -378,38 +400,45 @@
         window.location.href = 'fiche.html?slug=' + encodeURIComponent(d.slug);
       });
 
-    /* ── Cluster centres (one per dominant topic, arranged radially) ── */
-    var clusterTopics = [];
-    nodes.forEach(function (n) {
-      if (clusterTopics.indexOf(n.dominant) === -1) clusterTopics.push(n.dominant);
-    });
-    clusterTopics.sort();
+    /* ── Cluster centres: all topics, semantically ordered around the ring ── */
     var clusterPos = {};  // topic → {x, y}
     function computeClusterPos() {
       var cx = W / 2, cy = H / 2;
       var R = Math.min(W, H) * 0.42;
-      clusterTopics.forEach(function (t, i) {
-        var angle = (2 * Math.PI * i) / clusterTopics.length - Math.PI / 2;
+      orderedTopics.forEach(function (t, i) {
+        var angle = (2 * Math.PI * i) / orderedTopics.length - Math.PI / 2;
         clusterPos[t] = { x: cx + R * Math.cos(angle), y: cy + R * Math.sin(angle) };
       });
     }
     computeClusterPos();
 
+    /* IDF-weighted centroid: pull each node toward weighted avg of ALL its topic centers */
+    function clusterX(d) {
+      var cx = 0, w = 0;
+      d.topics.forEach(function (t) {
+        var wt = 1 / (topicFreq[t] || 1);  // rarer topic = stronger pull
+        cx += clusterPos[t].x * wt; w += wt;
+      });
+      return w > 0 ? cx / w : W / 2;
+    }
+    function clusterY(d) {
+      var cy2 = 0, w = 0;
+      d.topics.forEach(function (t) {
+        var wt = 1 / (topicFreq[t] || 1);
+        cy2 += clusterPos[t].y * wt; w += wt;
+      });
+      return w > 0 ? cy2 / w : H / 2;
+    }
+
     /* ── Simulation ── */
     var sim = d3.forceSimulation(nodes)
       .force('link', d3.forceLink(links).id(function (d) { return d.id; })
-        .distance(function (d) {
-          var base = d.value >= 3 ? 30 : 80;
-          return d.crossCluster ? base * 2.5 : base;
-        })
-        .strength(function (d) {
-          var base = d.value >= 3 ? 0.5 : 0.15;
-          return d.crossCluster ? base * 0.15 : base;
-        }))
+        .distance(function (d) { return 20 + (1 - d.value) * 160; })
+        .strength(function (d) { return d.value * 0.55; }))
       .force('charge', d3.forceManyBody().strength(-500).distanceMax(800))
       .force('collision', d3.forceCollide().radius(function (d) { return d.r + 8; }))
-      .force('x', d3.forceX(function (d) { return clusterPos[d.dominant].x; }).strength(0.35))
-      .force('y', d3.forceY(function (d) { return clusterPos[d.dominant].y; }).strength(0.35))
+      .force('x', d3.forceX(clusterX).strength(0.32))
+      .force('y', d3.forceY(clusterY).strength(0.32))
       .on('tick', tick);
 
     function tick() {
@@ -462,8 +491,8 @@
       measure();
       svg.attr('width', W).attr('height', H);
       computeClusterPos();
-      sim.force('x', d3.forceX(function (d) { return clusterPos[d.dominant].x; }).strength(0.35));
-      sim.force('y', d3.forceY(function (d) { return clusterPos[d.dominant].y; }).strength(0.35));
+      sim.force('x', d3.forceX(clusterX).strength(0.32));
+      sim.force('y', d3.forceY(clusterY).strength(0.32));
       sim.alpha(0.3).restart();
     });
 
