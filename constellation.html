@@ -213,7 +213,7 @@
       e._dominant = best || '—';
     });
 
-    /* ── Compute shared-topic links (link if ≥ 2 shared topics) ── */
+    /* ── Compute shared-topic links (≥ 2 shared topics for force, keep ≥ 1 for display) ── */
     var links = [];
     for (var i = 0; i < entries.length; i++) {
       for (var j = i + 1; j < entries.length; j++) {
@@ -221,8 +221,11 @@
         entries[i].topics.forEach(function (t) {
           if (entries[j].topics.indexOf(t) !== -1) shared++;
         });
-        if (shared >= 1) {
-          links.push({ source: i, target: j, value: shared });
+        if (shared >= 2) {
+          links.push({
+            source: i, target: j, value: shared,
+            crossCluster: entries[i]._dominant !== entries[j]._dominant
+          });
         }
       }
     }
@@ -384,7 +387,7 @@
     var clusterPos = {};  // topic → {x, y}
     function computeClusterPos() {
       var cx = W / 2, cy = H / 2;
-      var R = Math.min(W, H) * 0.32;
+      var R = Math.min(W, H) * 0.42;
       clusterTopics.forEach(function (t, i) {
         var angle = (2 * Math.PI * i) / clusterTopics.length - Math.PI / 2;
         clusterPos[t] = { x: cx + R * Math.cos(angle), y: cy + R * Math.sin(angle) };
@@ -395,12 +398,18 @@
     /* ── Simulation ── */
     var sim = d3.forceSimulation(nodes)
       .force('link', d3.forceLink(links).id(function (d) { return d.id; })
-        .distance(function (d) { return d.value >= 3 ? 30 : d.value === 2 ? 70 : 160; })
-        .strength(function (d) { return d.value >= 3 ? 0.7 : d.value === 2 ? 0.35 : 0.05; }))
-      .force('charge', d3.forceManyBody().strength(-350).distanceMax(600))
-      .force('collision', d3.forceCollide().radius(function (d) { return d.r + 7; }))
-      .force('x', d3.forceX(function (d) { return clusterPos[d.dominant].x; }).strength(0.09))
-      .force('y', d3.forceY(function (d) { return clusterPos[d.dominant].y; }).strength(0.09))
+        .distance(function (d) {
+          var base = d.value >= 3 ? 30 : 80;
+          return d.crossCluster ? base * 2.5 : base;
+        })
+        .strength(function (d) {
+          var base = d.value >= 3 ? 0.5 : 0.15;
+          return d.crossCluster ? base * 0.15 : base;
+        }))
+      .force('charge', d3.forceManyBody().strength(-500).distanceMax(800))
+      .force('collision', d3.forceCollide().radius(function (d) { return d.r + 8; }))
+      .force('x', d3.forceX(function (d) { return clusterPos[d.dominant].x; }).strength(0.35))
+      .force('y', d3.forceY(function (d) { return clusterPos[d.dominant].y; }).strength(0.35))
       .on('tick', tick);
 
     function tick() {
@@ -453,8 +462,8 @@
       measure();
       svg.attr('width', W).attr('height', H);
       computeClusterPos();
-      sim.force('x', d3.forceX(function (d) { return clusterPos[d.dominant].x; }).strength(0.09));
-      sim.force('y', d3.forceY(function (d) { return clusterPos[d.dominant].y; }).strength(0.09));
+      sim.force('x', d3.forceX(function (d) { return clusterPos[d.dominant].x; }).strength(0.35));
+      sim.force('y', d3.forceY(function (d) { return clusterPos[d.dominant].y; }).strength(0.35));
       sim.alpha(0.3).restart();
     });
 
