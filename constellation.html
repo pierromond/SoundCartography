@@ -194,6 +194,10 @@
   /* ── Load data ── */
   d3.json('data/entries.json').then(function (entries) {
 
+    /* ── Topics excluded from clustering (kept for display only) ── */
+    var CLUSTER_EXCLUDE = ['My Selection'];
+    function isClusterTopic(t) { return CLUSTER_EXCLUDE.indexOf(t) === -1; }
+
     /* ── Build topic → colour map (sorted by frequency, rarest = most distinctive) ── */
     var topicFreq = {};
     entries.forEach(function (e) {
@@ -203,10 +207,15 @@
     var topicColor = {};
     topicsSorted.forEach(function (t, i) { topicColor[t] = PALETTE[i % PALETTE.length]; });
 
-    /* ── Assign each entry a "dominant" (rarest) topic for colouring ── */
+    /* ── Assign each entry a "dominant" (rarest) clustering topic for colouring ── */
     entries.forEach(function (e) {
       var best = null, bestF = Infinity;
       e.topics.forEach(function (t) {
+        if (!isClusterTopic(t)) return;
+        if (topicFreq[t] < bestF) { bestF = topicFreq[t]; best = t; }
+      });
+      // fallback to any topic if all are excluded
+      if (!best) e.topics.forEach(function (t) {
         if (topicFreq[t] < bestF) { bestF = topicFreq[t]; best = t; }
       });
       e._color = best ? topicColor[best] : '#888';
@@ -215,16 +224,16 @@
 
     /* ── Topic co-occurrence matrix → semantic ordering around ring ── */
     var cooc = {};
-    topicsSorted.forEach(function (t) { cooc[t] = {}; });
+    topicsSorted.filter(isClusterTopic).forEach(function (t) { cooc[t] = {}; });
     entries.forEach(function (e) {
-      e.topics.forEach(function (t1) {
-        e.topics.forEach(function (t2) {
+      e.topics.filter(isClusterTopic).forEach(function (t1) {
+        e.topics.filter(isClusterTopic).forEach(function (t2) {
           if (t1 !== t2) cooc[t1][t2] = (cooc[t1][t2] || 0) + 1;
         });
       });
     });
     // Greedy nearest-neighbour: start from rarest topic, always pick most co-occurring next
-    var _pool = topicsSorted.slice();
+    var _pool = topicsSorted.filter(isClusterTopic);
     var orderedTopics = [ _pool.shift() ];
     while (_pool.length > 0) {
       var _last = orderedTopics[orderedTopics.length - 1];
@@ -237,15 +246,16 @@
       _pool.splice(_pool.indexOf(_best), 1);
     }
 
-    /* ── Jaccard-similarity links (threshold ≥ 0.15) ── */
+    /* ── Jaccard-similarity links — clustering topics only (threshold ≥ 0.15) ── */
     var links = [];
     for (var i = 0; i < entries.length; i++) {
       for (var j = i + 1; j < entries.length; j++) {
+        var ti = entries[i].topics.filter(isClusterTopic);
+        var tj = entries[j].topics.filter(isClusterTopic);
+        if (!ti.length || !tj.length) continue;
         var shared = 0;
-        entries[i].topics.forEach(function (t) {
-          if (entries[j].topics.indexOf(t) !== -1) shared++;
-        });
-        var jac = shared / (entries[i].topics.length + entries[j].topics.length - shared);
+        ti.forEach(function (t) { if (tj.indexOf(t) !== -1) shared++; });
+        var jac = shared / (ti.length + tj.length - shared);
         if (jac >= 0.15) {
           links.push({ source: i, target: j, value: jac });
         }
@@ -412,10 +422,10 @@
     }
     computeClusterPos();
 
-    /* IDF-weighted centroid: pull each node toward weighted avg of ALL its topic centers */
+    /* IDF-weighted centroid: pull each node toward weighted avg of its clustering topics */
     function clusterX(d) {
       var cx = 0, w = 0;
-      d.topics.forEach(function (t) {
+      d.topics.filter(isClusterTopic).forEach(function (t) {
         var wt = 1 / (topicFreq[t] || 1);  // rarer topic = stronger pull
         cx += clusterPos[t].x * wt; w += wt;
       });
@@ -423,7 +433,7 @@
     }
     function clusterY(d) {
       var cy2 = 0, w = 0;
-      d.topics.forEach(function (t) {
+      d.topics.filter(isClusterTopic).forEach(function (t) {
         var wt = 1 / (topicFreq[t] || 1);
         cy2 += clusterPos[t].y * wt; w += wt;
       });
